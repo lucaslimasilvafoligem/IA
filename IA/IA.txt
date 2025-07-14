@@ -394,6 +394,6 @@
 
 	* O que é a biblioteca Scikit-learn: é uma biblioteca popular de aprendizado de máquina para a linguagem de programação Python. Ele fornece uma ampla variedade de ferramentas e algorítimos para tarefas de aprendizado de máquina, como classificação, regressão, clusterização, redução de dimensionalidade e muito mais. O scikit-learn é conhecido por sua facilidade de uso, documentação abrangente e integração bem com outras bibliotecas Python, como NumPy, pandas e matplotlib. É uma escolha popular entre cientistas de dados e desenvolvedores para criar modelos de aprendizado de máquinas e realizar análises de dados.
 
-	* Acessar site do scikit-learn
+	* Acessar site do scikit-learn: https://scikit-learn.org/stable/
 
 --> Descrição do problema: um laboratório de análise clínicos, com base em dados de paciente que realizaram exames de diabetes, gostaria de prever, com base em características como idade, peso e altura, qual o resultado esperado do exame para novos pacientes. Para isso, Iremos treinar um algoritmos supervisionado (dado que temos dados reais dos resultados) para criar um modelo preditivo que atenda à necessidade deste laboratório. 

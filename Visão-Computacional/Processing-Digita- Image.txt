@@ -242,6 +242,8 @@ luz visível ilumina uma cena 3-D (tridimensional) co-
 mum. Por exemplo, a iluminação pode se originar de
 uma fonte de energia eletromagnética, como um siste-
 ma de raios X, de radar ou infravermelho. 
+
+
 			
 
 
