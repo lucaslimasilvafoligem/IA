@@ -257,7 +257,7 @@
 		* pipenv sweetviz
 
 --> Fundamentos de aprendizagem de máquina
-	* Objetivo: O objetivo deste módulo é apresenatr alguns conceitos fundamentais que farão parte de toda jornada de projeto ligado a aprendixado de máquina (machine learnig). Através destes conceitos, será possível entender melhor o landscape de algoritimos e técnicas para se lidar com projetos de Machine Learning, bem como estar atento a possívis desafios que irão energir e como superá-los, em temas como redução de dimensionalidade, overfitting e underfiting, dentre outros.
+	* Objetivo: O objetivo deste módulo é apresenatr alguns conceitos fundamentais que farão parte de toda jornada de projeto ligado a aprendixado de máquina (machine learnig). Através destes conceitos, será possível entender melhor o landscape de algoritmos e técnicas para se lidar com projetos de Machine Learning, bem como estar atento a possívis desafios que irão energir e como superá-los, em temas como redução de dimensionalidade, overfitting e underfiting, dentre outros.
 
 	# O que é: 
 		
@@ -283,7 +283,7 @@
 
 	# Aprendizado não Supervisionado
 
-		<> Apresentar todos os dados -> treinar algoritimos -> Obter um modelo -> Validar Rótulados -> Cálcular metricas
+		<> Apresentar todos os dados -> treinar algoritmos -> Obter um modelo -> Validar Rótulados -> Cálcular metricas
 
 	# Aprendizado Semi Supervisionado
 
@@ -295,7 +295,7 @@
 
 		<> Agente executar uma ação no ambiente -> Ambiente ajustar seu estado com a ação -> Ambiente vai emitir uma recompensa com base no estado -> Ambiente vai devolver o estado e a recompensa ao Agente 
 
-	# Visão geral de Algoritimos 
+	# Visão geral de Algoritmos 
 
 		* Supervisionados: Regressão, Classificação.
 
@@ -368,7 +368,7 @@
 
 				* Requisitos: Fairness, Segurança, Interpretabilidade, Eficiência
 
-			# Estrutura de projetos de IA/ML: A doação de uma metodologia para projetos de IA/ML, é essencial para estruturar e padronizar o processo de desenvolvimento, assegurando que cada fase seja abordada de forma sistemática e abrangente. Uma abordagem metódica não só facilita a identificação e correlação de falhas, como o overfitting, mas também promove a reprodutibilidade, permitindo que outros xientistas e engenheiros de dados repliquem o trabalho com facilidade. Além disso, essa estruturação otimiza a alteração e aprimoramento do modelo, e facilita a documentação e a comunicação com as partes interessadas, garantindo transpararência, colaboração e eficiência eao longo de todo o projeto.
+			# Estrutura de projetos de IA/ML: Adoação de uma metodologia para projetos de IA/ML, é essencial para estruturar e padronizar o processo de desenvolvimento, assegurando que cada fase seja abordada de forma sistemática e abrangente. Uma abordagem metódica não só facilita a identificação e correlação de falhas, como o overfitting, mas também promove a reprodutibilidade, permitindo que outros xientistas e engenheiros de dados repliquem o trabalho com facilidade. Além disso, essa estruturação otimiza a alteração e aprimoramento do modelo, e facilita a documentação e a comunicação com as partes interessadas, garantindo transpararência, colaboração e eficiência eao longo de todo o projeto.
 
 				* Crisp-DM (Cross Industry Standard Process for Data Mining): Foi criada em 1996 e se tornou a metodologia mais difundida em ciência de dados para o uso em projetos de IA/ML. O CRISP-DM é cíclico, significado que é comum retornar a etapas anteriores conforme avançamos no projeto, permitindo refinamentos contínuos até alcançar o resultados desejado. Seu uso com métodos LEan geram entregas de valor para Cliente, no conceito de "Fail Fast, Learn Faster".
 
@@ -390,10 +390,49 @@
 	
 --> Meu primeiro modelo com Scikit-learn: 
 
-	# O objetivo deste módulo é colocar a "mão na massa" e desenvolver um primeiro modelo de machine learning, com o objetivo de reforçar alguns conceitos apresentados no módulo de fundamentos de machine learning, bem como fazer uma exploração inicial da biblioteca Scikit-learn que nos acompanhará em boa parte de trilha.
-
 	* O que é a biblioteca Scikit-learn: é uma biblioteca popular de aprendizado de máquina para a linguagem de programação Python. Ele fornece uma ampla variedade de ferramentas e algorítimos para tarefas de aprendizado de máquina, como classificação, regressão, clusterização, redução de dimensionalidade e muito mais. O scikit-learn é conhecido por sua facilidade de uso, documentação abrangente e integração bem com outras bibliotecas Python, como NumPy, pandas e matplotlib. É uma escolha popular entre cientistas de dados e desenvolvedores para criar modelos de aprendizado de máquinas e realizar análises de dados.
 
 	* Acessar site do scikit-learn: https://scikit-learn.org/stable/
 
---> Descrição do problema: um laboratório de análise clínicos, com base em dados de paciente que realizaram exames de diabetes, gostaria de prever, com base em características como idade, peso e altura, qual o resultado esperado do exame para novos pacientes. Para isso, Iremos treinar um algoritmos supervisionado (dado que temos dados reais dos resultados) para criar um modelo preditivo que atenda à necessidade deste laboratório. 
+	<> Descrição do problema: um laboratório de análise clínicos, com base em dados de paciente que realizaram exames de diabetes, gostaria de prever, com base em características como idade, peso e altura, qual o resultado esperado do exame para novos pacientes. Para isso, Iremos treinar um algoritmos supervisionado (dado que temos dados reais dos resultados) para criar um modelo preditivo que atenda à necessidade deste laboratório.
+
+--> Algoritmos supervisionado - Regressão Linear simples:
+
+	# O que é análise de regressão: A análise de regressão é uma abordagem estatística que busca investigar e qualificar as relações entre variáveis.
+	Ela é usada para entender como uma variável dependente (target) está relacionada a uma ou mais variáveis independentes (fatores que acreditamos influenciar a vatiável dependente).
+		Essa técniva ermite construir um modelo matemático, geralemnte na forma de uma equação linear, que representa essa relação.
+	Ao ajustar o modelo aos dados observados, podemos estimar os parâmetros e entender como as mudanças nas variáveis independentes afetam a variável depedente.
+		Isso é fundamental para fazer previsões, tomar decisões embasadas em evidências e compreender melhor os padrões em dados do mundo real.
+
+	# Um passeio pelos tipos de regressão linear:
+
+		* Linear Simples: Envolve uma variável independente e uma variável deoendente, sendo representada por uma linha reta
+		Exemplo - prever pontuação num exame com base o tempo de estudo.
+
+		* Linear Múltipla: Utiliza várias variáveis independentes para prever uma variável dependente, resultando em um modelo linear mais complexo
+		Exemplo - prever desempenho de alunos com base em múltiplas variáveis.
+
+		* Logística: Usada geralemnte para prever probabilidades em problemas de classificaçõ (binária, multinomial, ordinal aninhada)
+		Exemplo - prever se cliente fará compra online (sim/não).
+
+		* Polinomial: Permite modelar relações não-lineares entre variáveis. A regressão polinomial usa uma curva (um polinômio) para se ajustar aos dados
+		Exemplo - previsão de vendas de produtos com base no clima/temperatura.
+
+		* Poisson: Adequada para modelar dados de contagem, como o número de eventos em um determinado período. É comum em estudos epidemiológicos e de contagem
+		Exemplo - número de reclamações de sinistros.
+
+		* Ridge, Lasso e ElasticNet: Técnicas de regularização para lidar com multicolinearidade e overftting. São usadas em análises onde há muitas variáveis independentes
+		Exemplo - estimar preços de casas com base em muitas variáveis.
+
+		* Gamma: Usada quando os dados não seguem uma distribuição normal e exibem uma assimetria positiva (à direita). Além disso, o target é contínuo e positivo
+		Exemplo - previsão de tempo de permânência de pacientes em hospital.
+
+		* Beta: Aplicada quando a variável dependente está restrita ao intervalo {0, 1}, comum em análises de promoções e taxas
+		Exemplo - taxas de conversão com base numa campanha de MKT
+	
+	<> Estrutura:
+
+		Carregar os dados -> Realizar EDA -> Preparar Dataset Treino e teste -> Treinar modelo -> Validar modelo (Métricas, análise de resíduos) -> Salvar modelo -> Entregar via API
+
+
+

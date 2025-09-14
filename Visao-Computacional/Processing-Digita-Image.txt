@@ -1,0 +1,917 @@
+<*> Processing Digital Image - By Conzales and Wood <*>
+
+* Matérias : preparação introdutória em análise matemática, vetores, matrizes, probabilidade, estatística, sistemas lineares e programação de computadores. 
+
+* Objetivos:
+	• uma introdução mais abrangente no início do livro
+	às ferramentas matemáticas utilizadas no processamento de imagens;
+	• uma explicação mais aprofundada das técnicas de
+	processamento de histogramas;
+	• explicação dos algoritmos mais complexos com resumos passo a passo;
+	Prefácio
+	Quando um texto pode ser lido sem esforço, muito empenho foi dedicado a escrevê-lo.
+	Enrique Jardiel Poncela
+	• uma explicação mais profunda da convolução e correlação espaciais;
+	• uma introdução à teoria de conjuntos fuzzy e sua
+	aplicação ao processamento de imagens;
+	• uma revisão do conteúdo sobre o domínio da frequência, começando com os princípios básicos e demonstrando como a transformada discreta de Fourier resulta da amostragem de dados;
+	• uma cobertura sobre a tomografia computadorizada
+	(CT, de computerized tomography);
+	• esclarecimentos dos conceitos básicos no capítulo
+	sobre as wavelets;
+	• uma revisão do capítulo sobre a compressão de dados para incluir mais técnicas de compressão de vídeo, padrões atualizados e marcas d’água;
+	• uma expansão do capítulo sobre morfologia para
+	incluir a reconstrução morfológica e uma revisão da
+	morfologia em níveis de cinza;
+	• uma expansão da cobertura sobre a segmentação
+	de imagens para incluir técnicas mais avançadas de
+	detecção de bordas, como o algoritmo de Canny, e
+	um tratamento mais abrangente da limiarização de
+	imagens;
+	• uma atualização do capítulo sobre a descrição e representação de imagens;
+	• uma simplificação do conteúdo sobre reconhecimento estrutural de objetos
+
+--> Capítulo 1: Introdução
+
+	--> 1.1 - O que é processamento digital de imagens:
+		Uma imagem pode ser definida como uma função bidimensional, f (x, y), em que x e y são coordenadas
+		espaciais (plano), e a amplitude de f em qualquer par de coordenadas (x, y) é chamada de intensidade 
+		ou nível de cinza da imagem nesse ponto. Quando x, y e os valores de intensidade de f são quantidades finitas
+		e discretas, chamamos de imagem digital.
+		
+	* Níveis de processamento: Um paradigma útil seria levar em consideração três tipos de processos computacionais nessa
+		linha contínua: processos de níveis baixo, médio e alto. Os processos de nível baixo envolvem operações
+		primitivas, como o pré-processamento de imagens para reduzir o ruído, o realce de contraste e o aguçamento de
+		imagens. Um processo de nível baixo é caracterizado pelo fato de tanto a entrada quanto a saída serem imagens.
+		O processamento de imagens de nível médio envolve tarefas como a segmentação (separação de uma imagem em
+		regiões ou objetos), a descrição desses objetos para reduzi-los a uma forma adequada para o processamento
+		computacional e a classificação (reconhecimento) de objetos individuais. Um processo de nível médio é
+		caracterizado pelo fato de suas entradas, em geral, serem imagens, mas as saídas são atributos extraídos dessas
+		imagens (isto é, bordas, contornos e a identidade de objetos individuais). Por fim, o processamento de nível
+		alto envolve “dar sentido” a um conjunto de objetos reconhecidos, como na análise de imagens e, no extremo
+		dessa linha contínua, realizar as funções cognitivas normalmente associadas à visão.
+	
+	--> 1.2 As origens do processamento digital de imagens: A principal fonte de energia para imagens utilizada atual­mente
+		é o espectro eletromagnético de energia. Outras importantes fontes de energia incluem a acústica, a
+		ultrassônica e a eletrônica (na forma de feixes de elétrons utilizados na microscopia eletrônica). Imagens
+		sintéticas, utilizadas para modelagem e visualização, são geradas por computador. Nesta seção, discutiremos
+		resumidamente como as imagens são geradas nessas várias categorias e as áreas nas quais elas são aplicadas.
+		Métodos para converter imagens em formato digital serão discutidos no próximo capítulo. Imagens baseadas na 
+		radiação do espectro EM são as mais familiares, especialmente as imagens nas bandas visuais e de raios X do
+		espectro. Ondas eletromagnéticas podem ser interpretadas como ondas senoidais, de vários comprimentos, que
+		propagam, ou também podem ser vistas como um fluxo de partículas sem massa, cada uma se deslocando em um padrão
+		ondulatório e se movendo na velocidade da luz. Cada partícula sem massa contém uma certa quantidade de energia,
+		denominada fóton. Se as bandas espectrais forem agrupadas de acordo com a energia por fóton, obtemos o espectro
+		mostrado na Figura 1.5, variando de raios gama (mais alta energia) em um extremo a ondas de rádio (mais baixa
+		energia) no outro.
+			
+	--> 1.3 Imagens formadas por raios gama: No entanto, em vez de utilizar uma fonte externa de energia de raios X, o
+		paciente recebe um isótopo radioativo que emite pósitrons à medida que vai se desintegrando. Quando um pósitron
+		colide com um elétron, ambos são destruídos e dois raios gama são emitidos. Eles são detectados, e uma imagem
+		tomográfica é criada utilizando os princípios básicos da tomografia.
+		
+		# Número da banda Nome Comprimento de onda (µm)Características e utilizações
+			1 Azul visível 0,45-0,52 Máxima penetração na água
+			2 Verde visível 0,52-0,60 Bom para a mensuração do vigor de plantas
+			3 Vermelho visível 0,63-0,69 Discriminação de vegetação
+			4 Infravermelho próximo 0,76-0,90 Mapeamento de biomassa e linha costeira
+			5 Infravermelho médio 1,55-1,75 Conteúdo de umidade do solo e vegetação
+			6 Infravermelho termal 10,4-12,5 Umidade do solo, mapeamento térmico
+			7 Infravermelho médio 2,08-2,35 Mapeamento mineral
+		
+		--> 1.3.5 Imagens na banda de micro-ondas: A principal aplicação da obtenção de imagens na banda de micro-ondas
+			é o radar. A característica singular da aquisição de imagens por radar é sua capacidade de coletar
+			dados em praticamente qualquer região a qualquer momento, independentemente do clima ou das condições
+			de iluminação do ambiente. Algumas ondas de radar podem penetrar nuvens e, em certas condições, também
+			podem ver através de vegetação, gelo e areia seca. Em muitos casos, o radar é a única forma de explorar
+			regiões inacessíveis da superfície da Terra. Um sistema de imagem por radar funciona como uma câmera
+			equipada com flash que fornece a própria iluminação (pulsos de micro-ondas) para iluminar uma área no
+			solo e obter uma imagem instantânea. Em vez de uma lente de câmera, o radar utiliza uma antena e o
+			processamento computacional para gravar suas imagens. Em uma imagem de radar, é possível ver apenas a
+			energia na faixa de micro-ondas que foi refletida de volta para a antena do radar.
+		
+		--> 1.3.6 Imagens na banda de rádio: Como no caso da aquisição de imagens no outro extremo do espectro (raios
+			gama), as principais aplicações das imagens obtidas na banda de rádio situam-se na medicina e na
+			astronomia. Na medicina, ondas de rádio são utilizadas em imagens por ressonância magnética (MRI,
+			de magnetic resonance imaging). Essa técnica consiste em posicionar um paciente em um poderoso ímã e
+			fazer com que ondas de rádio passem através de seu corpo em pul sos curtos. Cada pulso de ondas de
+			rádio emitido provoca um pulso de resposta correspondente, que é emitido pelos tecidos do paciente. O
+			local onde esses sinais se originam e sua intensidade são determinados por um computador, que produz
+			uma imagem bidimensional de uma seção do paciente. A MRI pode produzir imagens em qualquer plano. A
+			Figura 1.17 mostra imagens de MRI de um joelho e da coluna vertebral de um ser humano.
+		
+		--> 1.3.7 Exemplos nos quais outras modalidades de imagem são utilizadas Apesar de a obtenção de imagens no
+			espectro eletromagnético ser de longe a mais utilizada, há várias outras modalidades também
+			importantes. Mais especificamente, discutiremos nesta seção a imagem acústica, a microscopia eletrônica
+			e a imagem sintética (gerada por computador). A formação de imagem utilizando “sons” encontra
+			aplicação na exploração geológica, na indústria e na medicina. Aplicações geológicas utilizam o som no
+			extremo inferior do espectro sonoro (centenas de Hz), ao passo que a obtenção de imagens em outras
+			áreas utiliza o ultrassom (milhões de Hz). As aplicações comerciais mais importantes do processamento
+			de imagens na geologia encontram-se na exploração de minérios e petróleo. Para a aquisição de imagens a
+			partir da superfície do solo, uma das principais abordagens consiste em utilizar um grande caminhão com
+			uma grande placa de aço plana. A placa é pressionada no chão pelo caminhão, que sofre vibração
+			por um espectro de frequência de até 100 Hz. A intensidade e a velocidade das ondas sonoras que
+			retornam são definidas pela composição do solo abaixo da superfície. Esses dados são analisados por
+			computador e as imagens são geradas a partir dos resultados dessa análise.
+	
+	--> 1.4 Passos fundamentais em processamento digital de imagens: Aquisição de imagens => Filtragem e realce de imagens	 				
+		=(Suavização ,eliminação de ruído, visão estéreo, Sombras, detecção de bordas)> Restauração de imagens =>
+		Processamento de imagens coloridas => Wavelets e processamento multirresolução => 
+		Compressão => Processamento morfológico => Segmentação =(Separar em áreas)> Representação e descrição
+		=(textura, cor, forma do contorno, gradiente)> Reconhecimento de objetos
+		
+		* Um método bastante útil para realçar imagens radiográficas pode não ser a melhor abordagem para realça
+		imagens de satélite capturadas na banda infravermelha do espectro eletromagnético. Não existe uma “teoria” 
+		geral de realce de imagens. Quando uma imagem é processada para a interpretação visual, o observador é o juiz
+		final do bom funcionamento de um método particular.
+		
+		* A restauração de imagens também é uma área que lida com a melhora visual de uma imagem. No entanto, 
+		diferentemente do realce, que é subjetivo, a restauração de imagens é objetiva, no sentido de que as técnicas
+		de restauração tendem a se basear em modelos matemáticos ou probabilísticos de degradação de imagens. O realce,
+		por outro lado, baseia-se em preferências humanas subjetivas em relação ao que constitui uma imagem “boa”.
+
+		* O processamento de imagens coloridas é uma área que tem ganhado importância em virtude do aumento 
+		significativo da utilização de imagens digitais na Internet. A cor também é utilizada em capítulos posteriores
+		como base para a extração de características de interesse em uma imagem.
+
+		* As wavelets constituem os fundamentos para a representação de imagens em vários níveis de resolução.
+		Em particular, esse material é utilizado neste livro para a compressão de dados de imagens e para a
+		representação piramidal, na qual as imagens são subdivididas sucessivamente em regiões menores.
+		
+		* A compressão, como o nome sugere, lida com as técnicas de redução do armazenamento necessário para salvar uma
+		imagem, ou a largura de banda necessária para transmiti-la. Apesar de a tecnologia de armazenamento ter
+		avançado significativamente ao longo da última década, o mesmo não pode ser dito em relação à capacidade de
+		transmissão. Isso se aplica particularmente nas utilizações da Internet, que é caracterizada por um expressivo
+		conteúdo visual. A compressão de imagens é bem conhecida (talvez inadvertidamente) pela maioria dos usuários de
+		computadores na forma de extensões de arquivos de imagem, como a extensão .jpg, utilizada no padrão de
+		compressão de imagens JPEG (Joint Photographic Experts Group).
+
+		*O processamento morfológico lida com ferramentas para a extração de componentes de imagens úteis na
+		representação e descrição da forma. O material contido neste capítulo dá início a uma transição de processos 
+		nos quais as saídas são imagens para os processos nos quais as saídas passam a ser atributos de imagens, como
+		indicado na Seção 1.1. 
+		
+		* Os procedimentos de segmentação dividem uma imagem em suas partes ou objetos constituintes. Em geral, a 	
+		segmentação autônoma é uma das tarefas mais difíceis do processamento digital de imagens. Um procedimento de 		
+		segmentação de imagens bem-sucedido aumenta as chances de sucesso na solução de
+		problemas que requerem que os objetos sejam individualmente identificados. Por outro lado, algoritmos de 
+		segmentação fracos ou inconsistentes quase sempre asseguram falha no processamento. Em geral, quanto mais 
+		precisa for a segmentação, maiores irão as chances de sucesso no reconhecimento dos objetos. A representação e 
+		a descrição quase sempre partem do resultado de um estágio de segmentação, que normalmente são dados primários
+		em forma de pixels, correspondendo tanto à fronteira de uma região (por exemplo, o conjunto de pixels que 
+		separa uma região da imagem de outra) como a todos os pontos dentro dela. De qualquer forma, em ambos os casos 
+		é necessário converter os dados a uma forma adequada para o processamento computacional. A primeira decisão que
+		deve ser tomada é se os dados devem ser representados como fronteiras ou como regiões completas. A
+		representação por fronteira é apropriada quando o interesse se concentra nas características externas de forma, 			
+		como vértices e pontos de in- flexão. A representação por região é apropriada quando o foco é direcionado às 
+		propriedades internas do objeto, como a textura ou a forma do esqueleto. Em algumas aplicações, essas 
+		representações se complementam. Escolher uma representação constitui apenas uma parte da solução para 
+		transformar dados primários em uma forma apropriada para o subsequente processamento computacional. Um método 
+		também deve ser especificado para descrever os dados de modo que as características de interesse sejam
+		enfatizadas. O processo de descrição, também chamado de seleção de características, lida com a extração de 
+		atributos que resultam em alguma informação quantitaiva de interesse ou que possam ser utilizados para 
+		diferenciar uma classe de objetos de outra. O reconhecimento é o processo que atribui um rótulo (por exemplo, 
+		“veículo”) a um objeto com base em seus descritores. Como detalhamos na Seção 1.1, concluímos nossa abordagem 
+		do processamento digital de imagens com o desenvolvimento de métodos para o reconhecimento de objetos 
+		individuais.
+
+--> 2 Fundamentos da imagem digital:
+
+	--> 2.2 A luz e o espectro eletromagnético: Em uma extremidade do espectro estão as ondas de rádio, com comprimentos
+		de onda bilhões de vezes maiores que os da luz visível. Na outra extremidade do espectro estão os raios gama,
+		com comprimentos de onda bilhões de vezes menores que os da luz visível. O espectro eletromagnético pode ser
+		expresso em termos de comprimento de onda, frequência ou energia. Onde h é a constante de Planck. As unidades
+		de comprimento de onda são metros, com os termos mícrons (simbolizados por μm e equivalentes a 10–6 m) e
+		nanômetros (simbolizados por nm e equivalentes a 10–9 m) também sendo utilizados constantemente. A frequência 
+		é medida em Hertz (Hz), com um Hertz sendo igual a um ciclo de onda senoidal por segundo. Uma unidade de 
+		energia comumente utilizada é o elétron-volt. cdAs ondas eletromagnéticas podem ser visualizadas como ondas
+		senoidais que se propagam com o comprimento de onda λ (Figura 2.11), ou podem ser vistas como um fluxo de
+		partículas sem massa, cada uma se deslocando em um padrão similar ao de uma onda e se movendo na velocidade da 
+		luz. Cada partícula sem massa contém uma certa quantidade (ou quantum) de energia. Cada quantum de energia é
+		chamado de fóton. Vemos na Equação 2.2-2 que a energia é proporcional à frequência, de forma que os fenômenos
+		eletromagnéticos de frequência.
+			A luz sem cor é chamada de luz monocromática (ou acromática). O único atributo da luz monocromática é
+		sua intensidade ou quantidade. Pelo fato de a intensidade da luz monocromática ser percebida como variações de 
+		preto a tons de cinza até chegar ao branco, o termo nível de cinza costuma ser utilizado para denotar a 
+		intensidade monocromática. Utilizamos os termos intensidade e nível de cinza como sinônimos nas discussões 
+		subsequentes. A variedade de valores mensurados de luz monocromática do preto ao branco costuma ser chamada de
+		escala de cinza, e as imagens monocromáticas são comumente chamadas de imagens em escala de cinza. A luz
+		cromática (colorida) cobre o espectro de energia eletromagnética na faixa de 0,43 a 0,79 µm, aproximadamente, 
+		como observado anteriormente. 2.3 Sensores e aquisição de imagens A maioria das imagens nas quais estamos
+		interessados é gerada pela combinação de uma fonte de “iluminação” e a reflexão ou absorção de energia dessa
+		fonte pelos elementos da “cena” cuja imagem está sendo gerada. Colocamos iluminação e cena entre aspas para 
+		enfatizar o fato de que elas são consideravelmente mais genéricas que a situação habitual na qual uma fonte de
+		luz visível ilumina uma cena 3-D (tridimensional) comum. Por exemplo, a iluminação pode se originar de uma
+		fonte de energia eletromagnética, como um sistema de raios X, de radar ou infravermelho. 
+
+		--> 2.3.4 Um modelo simples de formação de imagem
+			A função f (x, y) pode ser caracterizada por dois componentes: (1) a quantidade de iluminação da fonte 
+			que incide na cena que está sendo vista; e (2) a quantidade de iluminação refletida pelos objetos na 
+			cena. Esses elementos são chamados de componentes de iluminação e refletância e são expressos 
+			por i (x, y) e r (x, y), respectivamente. As duas funções se combinam como um produto para formar f (x,
+			y): f (x, y) = i (x, y) r (x, y) (2.3-2) onde
+			0 < i (x,  y) < ∞(2.3-3)
+			0 < r (x, y) < 1(2.3-4)
+						
+
+
+	--> 2.4 A  mostragem e quantização de imagens: Da discussão feita na seção anterior, vemos que existem várias formas de
+		aquisição de imagens, mas nosso objetivo em todas elas é o mesmo: gerar imagens digitais a partir de dados
+		captados por sensores. A saída da maioria dos sensores consiste de uma forma de onda de tensão contínua cuja
+		amplitude e o comportamento no espaço estão relacionados ao fenômeno físico que está sendo captado pelos sen- 
+		sores. Para criar uma imagem digital, precisamos converter os dados contínuos que foram captados para o formato
+		digital. Isso envolve dois processos: amostragem e quantização.
+
+
+		--> 2.4.1 Os conceitos básicos da amostragem e da quantização: A ideia básica por trás da amostragem e da
+			quantização é ilustrada na Figura 2.16. A Figura 2.16(a) mostra uma imagem contínua f que queremos 
+			converter em formato digital. Uma imagem pode ser contínua em relação às coordenadas x e y e também em
+			relação à amplitude. Para convertê-la ao formato digital, temos de fazer a amostragem da função em 
+			ambas a coordenadas e na amplitude. A digitalização dos valores de coordenada chamada de amostragem. A
+			digitalização dos valores de amplitude é chamada de quantização.
+
+				Se os níveis de intensidade também forem números inteiros (como geralmente é o caso neste e em 
+			capítulos subsequentes), Z substitui R e uma imagem digital se torna uma função bidimensional cujas
+			coordenadas e valores de amplitude são números inteiros. Esse processo de digitalização requer que
+			decisões sejam tomadas em relação aos valores de M, N e para o número, L, de níveis discretos de 
+			intensidade. Não há restrições para M e N, além do fato de que eles precisam ser números inteiros
+			positivos. No entanto, em virtude de algumas considerações de hardware no processo de armazenamento e
+			quantização, o número de níveis de intensidade costuma ser uma potência inteira de 2:** L = 2k
+
+				Assumimos que os níveis discretos sejam igualmente espaçados e que sejam números inteiros no 				
+			intervalo [0, L − 1]. Algumas vezes, a faixa de valores cobertos pela escala de cinza é chamada 
+			informalmente de faixa dinâmica. Esse é um termo utilizado de forma distinta em diferentes áreas. 
+			Aqui,  definimos a faixa dinâmica de um sistema de aquisição de imagens como a razão da intensidade 
+			máxima mensurável pela intensidade mínima detectável no sistema. Como regra, o limite superior é 
+			determinado pela saturação e o limite inferior pelo ruído
+
+				Quando um número significativo de pixels em uma imagem possui uma alta faixa dinâmica, podemos 
+			esperar que a imagem tenha um alto contraste. Por outro lado, uma imagem com baixa faixa dinâmica
+			normalmente tem uma aparência embaçada, sem brilho. O número, b, de bits necessários para armazenar
+			uma imagem digitalizada é b=M×N×k (2.4-4) Quando M = N, essa equação passa a ser b = N2^(k)
+
+				Uma imagem ilustrando a saturação e o ruído. A saturação é o valor mais alto além do qual 
+			todos os níveis de intensidade são cortados (observe como toda a área saturada tem um nível de 
+			intensidade constante e alto). O ruído nesse caso aparece com um padrão de textura granulada. O ruído, 
+			especialmente nas regiões mais escuras de uma imagem (por exemplo, o caule da rosa) mascara o menor
+			nível real de intensidade detectável.
+
+				O ponto principal do parágrafo anterior é que, para serem significativas, as medidas de
+			resolução espacial devem ser expressas com relação a unidades espaciais. O tamanho da imagem por si só 
+			não diz tudo. Dizer que uma imagem tem, digamos, uma resolução de 1.024 × 1.024 pixels não faz muito 
+			sentido se as dimensões espaciais da imagem não forem especificadas. O tamanho sozinho só é útil ao 
+			fazer comparações entre capacidade de sistemas de aquisição de imagens.
+
+		--> 2.4.4 Interpolação de imagens: A interpolação é uma ferramenta básica utilizada extensivamente em tarefas 	
+			como ampliação, redução, rotação e correções geométricas. Nosso principal objetivo nesta seção é 
+			apresentar a interpolação e aplicá-la ao redimensionamento de imagens (redução e ampliação), que são 
+			basicamente métodos de reamostragem de imagens. As utilizações da interpolação em aplicações como 
+			rotação e correções geométricas.
+
+				Essencialmente, a interpolação é o processo que utiliza dados conhecidos para estimar valores 
+			em pontos desconhecidos. Damos início à discussão desse tópico com um exemplo simples. Suponha que uma 
+			imagem de tamanho 500 × 500 pixels deva ser ampliada uma vez e meia, resultando em uma imagem de 750 × 
+			750 pixels (ampliação de 1,5 ×). Uma maneira simples de visualizar a ampliação é criar uma grade 
+			imaginária 750 × 750 com o mesmo espaçamento de pixels da imagem original e, então, reduzi-la de forma 
+			que se encaixe exatamente sobre a imagem original. Obviamente, o espaçamento de pixels na grade 750 × 
+			750 após a redução será menor que o espaçamento de pixels na imagem original. Para realizar a 
+			atribuição de nível de intensidade para os pontos da imagem sobreposta, procuramos o pixel mais próximo
+			na imagem original e atribuímos a intensidade desse pixel ao novo pixel na grade 750 × 750 reduzida.
+			Quando terminamos de atribuir as intensidades a todos os pontos da grade sobreposta, nós a expandimos 
+			para o tamanho original a fim de obter a imagem ampliada.
+
+				O método que acabamos de discutir é chamado de interpolação por vizinho mais próximo porque 
+			atribui a cada nova posição a intensidade de seu vizinho mais próximo na imagem original (as 
+			vizinhanças de pixels serão descritas formalmente na Seção 2.5). Esse método é simples, mas, como 
+			mostraremos mais adiante nesta seção, tem a tendência de produzir artefatos indesejáveis na imagem, 
+			como uma grande distorção nas bordas retas. Por essa razão, ela é pouco utilizada na prática. Uma 
+			abordagem mais apropriada é a interpolação bilinear, na qual utilizamos os quatro vizinhos mais 
+			próximos para estimar a intensidade de uma dada posição. Digamos que (x, y) expresse as coordenadas da 
+			posição na qual queremos atribuir um valor de intensidade (pense nela como um ponto da grade descrita 
+			anteriormente), e que v(x, y) expresse o valor da intensidade. Para a interpolação bilinear* o valor 
+			atribuído é obtido utilizando a equação:
+				v(x, y) = ax + by + cxy + d (2.4-6)
+			onde os quatro coeficientes são determinados a partir das quatro equações de quatro incógnitas que 
+			podem ser escritas utilizando os quatro vizinhos mais próximos do ponto (x, y). Como veremos em breve, 
+			a interpolação bilinear
+
+			--> 2.6.1 Operações de arranjos matriciais versus
+			matrizes
+			Uma operação de arranjo matricial envolvendo uma
+			ou mais imagens é realizada pixel a pixel. Mencionamos
+			anteriormente, neste capítulo, que as imagens podem ser3.1.2 Sobre os exemplos deste capítulo
+			Apesar de as transformações de intensidade e filtragem
+			espacial cobrirem uma ampla variedade de aplicações,
+			a maioria dos exemplos apresentados neste capítulo é
+			de aplicações para o realce de imagens. Realce é o pro-
+			cesso de manipular uma imagem de forma que o resultado
+			seja mais adequado do que o original para uma aplicação
+			específica. A palavra específica é importante neste contexto,
+			porque reconhece desde o início que as técnicas de realce
+			são orientadas ao problema. Dessa forma, por exemplo,
+			um método bastante útil para realçar imagens de raios X
+			pode não ser a melhor técnica para realçar imagens de
+			satélite capturadas na banda infravermelha do espectro
+			eletromagnético. Não existe uma “teoria” geral para o
+			realce de imagens.
+			vistas de modo equivalente como matrizes. De fato, há
+			muitas situações nas quais as operações entre as imagens
+			são realizadas utilizando a teoria das matrizes (veja a Seção
+			2.6.6). É por essa razão que deve ser feita uma distinção
+			clara entre operações de arranjos matriciais e matrizes. Por
+			exemplo, vejamos as seguintes imagens 2 × 2:
+
+
+			--> 2.6.2 Operações lineares versus não lineares
+			Uma das classificações mais importantes de um mé-
+			todo de processamento de imagens é em linear ou não linear.
+			Considere um operador geral, H, que produza uma imagem
+			de saída, g(x, y), para uma dada imagem de entrada, f(x, y):
+			H[f(x, y)] = g(x, y)
+
+			Diz-se que H é um operador linear se
+			<Olhar imagem da formula>
+			onde ai, aj, fi(x, y) e fj(x, y) são, respectivamente, constan-
+			tes e imagens arbitrárias (do mesmo tamanho). A Equação
+			2.6-2 indica que a saída de uma operação linear em decor-
+			rência da soma de duas entradas é o mesmo que realizar
+			essa operação para as entradas individualmente e depois
+			somar os resultados. Além disso, a saída de uma operação
+			linear da multiplicação de uma constante por uma entra-
+			da é igual à saída da operação em virtude da entrada origi-
+			nal multiplicada por essa constante. A primeira propriedade
+			é chamada de propriedade de aditividade e a segunda é
+			chamada de propriedade da homogeneidade.
+
+			sendo que o primeiro passo resulta do fato de que o so-
+			matório é distributivo. Dessa forma, uma expansão do
+			lado esquerdo é igual ao lado direito da Equação 2.6-2 e
+			concluímos que o operador de soma é linear.
+
+			Por outro lado, considere a operação máx, cuja fun-
+			ção é calcular o valor máximo dos pixels em uma ima-
+			gem. Para nossos propósitos aqui, a forma mais simples
+			de provar que esse operador é não linear é encontrar um
+			exemplo que não passe no teste da Equação 2.6-2. Con-
+			sideremos as duas imagens a seguir
+
+			e suponha que a1 = 1 e a2 = – 1. Para testar a linearida-
+			de, mais uma vez começamos com o lado esquerdo da
+			Equação 2.6-2:
+
+			2.6.3 Operações aritméticas
+			As operações aritméticas entre imagens são opera-
+			ções de arranjo matricial que, como discutimos na Seção
+			2.6.1, significam que as operações aritméticas são reali-
+			zadas entre pares de pixels correspondentes. As quatro
+			operações aritméticas são expressas como
+			s(x, y) = f(x, y) + g(x, y)
+			d(x, y) = f(x, y) – g(x, y)
+			p(x, y) = f(x, y) × g(x, y)
+			v(x, y) = f(x, y) ÷ g(x, y)
+
+	Exemplo 2.5  Adição (para cálculo da média) de imagens
+	ruidosas para a redução de ruídos.*
+
+	Com g(x, y) expressando uma imagem corrompida for-
+	mada pela adição de ruído, η(x, y), a uma imagem sem ruído
+	f(x, y), isto é:
+
+	g(x,y) = f(x,y) + η(x,y)
+
+	onde assumimos que, para cada par de coordenadas (x, y), o
+	ruído não tem correlação** e tem valor médio zero. O objetivo
+	do procedimento a seguir é reduzir o ruído por meio da adi-
+	ção de um conjunto de imagens ruidosas, {gi(x, y)}. Esta é uma
+	técnica utilizada frequentemente para o realce de imagens
+
+	Se o ruído satisfizer as condições mencionadas ante-
+	riormente, pode ser demonstrado (Exercício 2.20) que, se
+	uma imagem g( x , y) for formada pela média de K diferen-
+	tes imagens ruidosas:
+
+	S
+	 ubtração de imagens para realce de
+	diferenças.
+	Uma aplicação frequente da subtração de imagens é
+	no realce de diferenças entre as imagens. Por exemplo, a ima-
+	gem da Figura 2.27(b) foi obtida zerando os bits menos sig-
+	nificativos de todos os pixels da Figura 2.27(a). Visualmente,
+	essas imagens são exatamente iguais. Contudo, como mos-
+	tra a Figura 2.27(c), subtrair uma imagem da outra mostra
+	claramente suas diferenças. Valores em preto (0) nessa ima-
+	gem de diferença indicam pontos nos quais não há nenhu-
+	ma diferença entre as imagens das figuras 2.27(a) e (b).
+	Como outro exemplo, analisaremos rapidamente uma
+	área das imagens médicas chamada de radiografia em modo
+	máscara, uma utilização comercialmente bem-sucedida e ex-
+	tremamente benéfica da subtração de imagens.* Considera-
+	mos a diferença entre duas imagens da forma:
+	g(x, y) = f(x, y) – h(x, y)
+	(2.6-9)
+	Neste caso, h(x, y), a máscara, é uma imagem de raios X
+	de uma região do corpo do paciente, capturada por um inten-
+	sificador de imagens e uma câmera de TV (em vez de um filme
+	de raios X tradicional) localizada na frente de uma fonte de
+	raios X. O procedimento consiste em injetar uma substância
+	de contraste para raios X na corrente sanguínea do pacien-
+	te, capturando uma série de imagens chamada de imagens
+
+
+	U
+	 tilização da multiplicação e divisão de
+	imagens para a correção de sombreamento.
+	Uma importante aplicação da multiplicação (e divisão)
+	de imagens é a correção de sombreamento. Suponha que um
+	sensor de aquisição de imagens produza imagens que pos-
+	sam ser modeladas como o produto de uma “imagem perfei-
+	ta”, expressa por f(x, y), por uma função de sombreamento
+	h(x, y), isto é, g(x, y) = f(x, y)h(x, y). Se h(x, y) for conhecido,
+	podemos obter f(x, y) multiplicando a imagem capturada pelo
+	inverso de h(x, y) (isto é, dividindo g por h). Se h(x, y) não for
+	conhecido, mas o acesso ao sistema de aquisição de imagens
+	for possível, podemos obter uma aproximação da função de
+	sombreamento obtendo uma imagem de um objeto de in-
+	tensidade constante. Quando o sensor não está disponível,
+	podemos muitas vezes estimar o padrão de sombreamento
+	diretamente da imagem, como veremos na Seção 9.6. A Figu-
+	ra 2.29 mostra um exemplo de correção de sombreamento.
+
+	2.6.4 Operações com conjuntos e operações lógicas
+	Nesta seção, apresentamos brevemente algumas im-
+	portantes operações com conjuntos e operações lógicas.
+	Também apresentamos o conceito de um conjunto fuzzy.
+
+	Operações básicas com conjuntos
+	Seja A um conjunto composto de pares ordenados de
+	números reais. Se a = (a1, a2) for um elemento de A, temos
+	a ∈ A
+	(2.6-12)
+	Da mesma forma, se a não for um elemento de A, temos
+	a ∉ A
+	(2.6-13)
+	O conjunto que não contém elementos é chamado de con-
+	junto nulo ou conjunto vazio e é expresso pelo símbolo ∅.
+	Um conjunto é especificado pelo conteúdo de duas
+	chaves: {  ⋅  }. Por exemplo, quando escrevemos uma ex-
+	pressão da forma C = {w|w = –d, d ∈ D}, queremos dizer
+	que o conjunto C é o conjunto de elementos, w, de forma
+	que w é formado multiplicando cada um dos elementos
+	do conjunto D por –1. Uma forma na qual os conjuntos
+	são utilizados em processamento de imagens é fazer com
+	que os elementos dos conjuntos sejam coordenadas de pi-
+
+	xels (pares ordenados de números inteiros) representan-
+	do regiões (objetos) em uma imagem.
+
+	Se cada elemento de um conjunto A também for
+	um elemento de um conjunto B, então se diz que A é um
+	subconjunto de B, expresso como
+	A ⊆ B
+	A diferença entre dois conjuntos A e B, expressa por A – B,
+	é definida como
+	A união dos dois conjuntos A e B é expressa por
+	C=A ∪ B
+	que é o conjunto de elementos que pertencem ou ao con-
+	junto A, ou ao B ou a ambos. De forma similar, a interseção
+	de dois conjuntos A e B é expressa por
+	D=A ∩ B
+
+
+	que é o conjunto de elementos que pertencem a ambos
+	os conjuntos. Diz-se que dois conjuntos A e B são disjun-
+	tos ou mutuamente exclusivos se não tiverem elementos em
+	comum. Nesse caso:
+	A ∩ B=∅
+
+	O conjunto universo, U, é o conjunto de todos os ele-
+	mentos de uma dada aplicação. Por definição, todos os
+	elementos do conjunto em uma dada aplicação pertencem
+	ao universo definido para essa aplicação. Por exemplo,
+	se você estiver trabalhando com o conjunto de números
+	reais, o conjunto universo é a reta real, que contém todos
+	os números reais. No processamento de imagens, normal-
+	mente definimos o conjunto universo como o retângulo
+	que contém todos os pixels de uma imagem.
+
+	O complemento de um conjunto A é o conjunto de
+	elementos que não estão em A:
+
+	Ac = {w|w ∉ A}
+
+	Exemplo 2.8 O
+	 perações de conjuntos envolvendo
+	intensidades de imagem.
+	Sejam os elementos de uma imagem em escala de
+	cinza representada por um conjunto A cujos elementos são
+	expressos em um grupo de três variáveis na forma (x, y, z),
+	onde x e y são coordenadas espaciais e z expressa a intensi-
+	dade, como mencionamos na Seção 2.4.2. Podemos definir
+	o complemento de A como o conjunto Ac = {(x, y, K – z) | (x, y, z)
+	∈ A}, o que simplesmente expressa o conjunto de pixels de
+	A cujas intensidades foram subtraídas de uma constante K.
+	Essa constante é igual a 2k – 1, sendo k o número de bits
+	por pixel utilizado para representar a intensidade z. Seja A
+	a imagem em escala de cinza de 8 bits da Figura 2.32(a), e
+	suponha que queiramos formar o negativo de A utilizando
+	operações com conjuntos. Nós simplesmente formamos o
+	conjunto An = Ac = {(x, y, 255 – z) | (x, y, z) ∈ A}. Observe que
+	as coordenadas são mantidas na mesma posição, de forma
+	que An é uma imagem do mesmo tamanho que A. A Figura
+	2.32(b) mostra o resultado.
+	A união dos dois conjuntos em escala de cinza A e B
+	pode ser definida com o conjunto
+
+	A ∪ B = máx (a , b) a ∈ A , b ∈ B
+
+
+	Operações lógicas
+	Quando lidamos com imagens binárias, podemos
+	pensar em grupos de pixels de frente (valor 1) e de fun-
+	do (valor 0). Então, se definirmos regiões (objetos) como
+	sendo compostos de pixels de frente, as operações de con-
+	juntos ilustradas na Figura 2.31 se tornam operações en-
+	tre as coordenadas dos objetos em uma imagem binária.
+	Ao lidar com imagens binárias, costuma-se referir a união,
+	interseção e complemento como as operações lógicas OU
+	(OR), E (AND) e NÃO (NOT), onde “lógicas” provêm da
+	lógica matemática na qual 1 e 0 expressam verdadeiro e
+	falso, respectivamente.
+	Considere duas regiões (conjuntos) A e B com-
+	postas de pixels de frente. A operação OU entre esses
+	dois conjuntos é o conjunto de elementos (coordena-
+	das) pertencentes a A ou a B ou aos dois. A operação
+	E é o conjunto de elementos que são comuns a A e a
+	B. A operação NÃO de um conjunto A é o conjunto de
+	elementos que não pertencem a A. Como estamos lidan-
+	do com imagens, se A for um dado conjunto de pixels
+
+	(x, y) = T{(v, w)}
+	(2.6-22)
+	onde (v, w) são coordenadas de um pixel na imagem ori-
+	ginal, e (x, y) são as coordenadas do pixel correspondente
+	na imagem transformada. Por exemplo, a transformação
+	(x, y) = T{(v, w)} = (v/2, w/2) reduz a dimensão (shrink)
+	da imagem original à metade de seu tamanho em ambas
+	as direções espaciais. Uma das transformações em coor-
+	denadas espaciais mais comumente utilizadas é a transfor-
+	mação afim (Wolberg [1990]), que assume a forma geral:
+
+	a questão de como combinar vários valores de saída em
+	um único pixel de saída. Além disso, é possível que algu-
+	mas posições de saída não sejam atribuídas a nenhum pi-
+	xel. A segunda abordagem, chamada de mapeamento inverso,
+	realiza uma varredura nas posições dos pixels de saída e,
+	a cada posição (x, y), calcula a posição correspondente na
+	imagem de entrada utilizando (v, w) = T–1(x, y). Depois rea-
+	liza a interpolação (utilizando uma das técnicas discutidas
+	na Seção 2.4.4) entre os pixels de entrada mais próximos
+	para determinar a intensidade do pixel de saída. Os mapea-
+	mentos inversos são de implementação mais eficiente do
+	que os mapeamentos diretos e são utilizados em várias apli-
+	cações comerciais de transformações espaciais (por exem-
+	plo, o Matlab utiliza essa abordagem).
+
+	Figura 2.36 (a) Uma imagem de 300 dpi da letra T. (b) Imagem rotacionada a 21° utilizando a interpolação do vizinho mais próximo para atribuir
+	valores de intensidade aos pixels transformados espacialmente. (c) Imagem rotacionada a 21° utilizando a interpolação bilinear. (c) Imagem
+	rotacionada a 21° utilizando a interpolação bicúbica. As seções ampliadas mostram detalhes de borda para os três métodos de interpolação.
+
+
+	2.6.6 Operações com vetores e matrizes*
+	O processamento de imagens multiespectrais é uma
+	área típica na qual as operações com vetores e matrizes
+	são utilizadas rotineiramente. Por exemplo, veremos no
+	Capítulo 6 que as imagens coloridas são formadas no es-
+	paço de cores RGB utilizando imagens de componentes
+	vermelhos, verdes e azuis, como ilustra a Figura 2.38.
+	Aqui, veremos que cada pixel de uma imagem RGB pos-
+
+	sui três componentes, que podem ser organizados na for-
+	ma de um vetor coluna
+
+	(2.6-26)
+	sendo z1 a intensidade de pixels na imagem vermelha e
+	os outros dois elementos as intensidades do pixel cor-
+	respondente nas imagens verde e azul, respectivamente.
+	Dessa forma, uma imagem colorida RGB de tamanho M
+	× N pode ser representada pelas três imagens componen-
+	tes de mesmo tamanho ou por um total de MN vetores
+	3-D.
+
+	Vemos que essa é uma generalização da distância
+	euclidiana 2-D definida na Equação 2.5-1. A Equação
+	2.6-27 por vezes é chamada de norma vetorial, expressa
+	por ||z – a||. Utilizaremos cálculos de distância inúmeras
+	vezes nos capítulos seguintes.
+	Outra importante vantagem dos pixels em forma de ve-
+	tores está nas transformações lineares, representadas como:
+	w = A(z – a)
+	(2.6-28)
+	onde A é uma matriz de tamanho m × n e z e a são
+	vetores coluna de tamanho n × 1. Como veremos mais
+	adiante, transformações desse tipo têm várias aplicações
+	úteis no processamento de imagens.
+	Como observado na Equação 2.4-2, imagens inteiras
+	podem ser tratadas como matrizes (ou, de forma equivalente,
+	como vetores), um fato que tem importantes implicações na
+	resolução de vários problemas de processamento de imagens.
+	Por exemplo, podemos expressar uma imagem de tamanho
+	M × N como um vetor de dimensão MN × 1 fazendo com
+	que a primeira linha da imagem seja composta pelos primei-
+	ros N elementos do vetor, a segunda linha pelos próximos N
+	elementos, e assim por diante. Com imagens formadas dessa
+	maneira, podemos expressar uma ampla variedade de pro-
+	cessos lineares aplicados a uma imagem utilizando a notação:
+	g = Hf + n
+
+	onde f é um vetor MN × 1 representando uma imagem
+	de entrada, n é um vetor MN × 1 representando um pa-
+	drão de ruído M × N, g é um vetor MN × 1 representando
+	uma imagem processada e H é uma matriz MN × MN
+	representando um processo linear aplicado à imagem de
+	entrada (veja a Seção 2.6.2 sobre os processos lineares).
+
+
+	Estas páginas do capítulo 2 de González e Woods abordam três tópicos centrais em processamento de imagens:
+
+	1. Representação de pixels como vetores e distância vetorial
+	- Figura 2.38 mostra como, para imagens coloridas RGB, cada pixel pode ser visto como um vetor z = [z1 z2 z3]^T cujos componentes são as intensidades em R, G e B.
+	- A distância entre dois vetores z e a pode ser generalizada pela fórmula
+	D(z,a) = [(z – a)^T (z – a)]^(1/2)
+			= sqrt((z1–a1)^2 + (z2–a2)^2 + … + (zn–an)^2)
+	que é simplesmente a norma‑euclidiana no espaço de dimensões iguais ao número de bandas da imagem (3 no caso RGB).
+
+	2. Transformadas lineares de imagem
+	- Denotamos por f(x,y) a intensidade no pixel (x,y) de uma imagem de tamanho M×N.
+	- Uma transformada direta bidimensional genérica é escrita como
+	T(u,v) = Σ_{x=0}^{M–1} Σ_{y=0}^{N–1} f(x,y) · r(x,y,u,v),
+	onde r(x,y,u,v) é o kernel da transformada (por exemplo, e^(–j2π(xu/M + yv/N)) para a DFT).
+	- A transformada inversa correspondente é
+	f(x,y) = Σ_{u=0}^{M–1} Σ_{v=0}^{N–1} T(u,v) · s(x,y,u,v),
+	com s(·) outro kernel (no caso da DFT, (1/MN) e^(+j2π(xu/M + yv/N))).
+	- Quando r e s satisfazem certas propriedades (separabilidade e simetria), a transformada pode ser implementada de forma eficiente em linhas e colunas sucessivas.
+
+	Forma matricial
+	- Podemos reorganizar f(x,y) numa única coluna f de tamanho MN.
+	- Então a transformada direta é T = A·f e a inversa f = B·T.
+	- No caso de transformadas ortogonais (como a DFT sem o fator de escala), B = A^T, e a relação pode ser escrita B^T B = I.
+
+	3. Métodos probabilísticos: histograma, média e variância
+	- Para uma imagem de M×N pixels, definimos p(zk), a probabilidade de ocorrência do nível de cinza zk, como
+	p(zk) = nk / (M N),
+	onde nk é o número de pixels com intensidade zk.
+	- As propriedades de p(zk) são
+	Σ_{k=0}^{L–1} p(zk) = 1.
+	- O valor médio (primeiro momento) dos níveis de cinza é
+	m = Σ_{k=0}^{L–1} zk · p(zk).
+	- A variância (segundo momento central) é
+	σ^2 = Σ_{k=0}^{L–1} (zk – m)^2 · p(zk).
+	Ela quantifica a dispersão dos níveis de cinza em torno da média e está diretamente relacionada ao contraste da imagem.
+
+	Ilustrações práticas (Figura 2.40)
+	- (a) Imagem original
+	- (b) Magnitude da transformada de Fourier: mostra padrões de frequência causados pela interferência senoidal.
+	- (c) Máscara aplicada para manter só baixas frequências (remove os pontos brilhantes no centro da DFT).
+	- (d) Resultado da transformada inversa após filtragem: aparece o anel suave, evidenciando como apagar certas componentes espectrais afeta a imagem no domínio espacial.
+
+	Em resumo, estas páginas introduzem como enxergar cada pixel como um vetor multidimensional, definem transformadas lineares bidimensionais (e seu tratamento matricial), e lembram que muitos operadores em processamento de imagens — desde filtragem no domínio de Fourier até equalização de histograma — dependem de conceitos probabilísticos básicos (histograma, média e variância) para descrever e manipular o conteúdo visual.
+
+
+	Figura 2.40 (a) Imagem corrompida por uma interferência senoidal.
+	(b) Magnitude da transformada de Fourier mostrando pontos brilhan-
+	tes de energia responsáveis pela interferência. (c) Máscara utilizada
+	para eliminar os pontos brilhantes de energia. (d) Resultado obtido
+	pelo cálculo da transformada da inversa de Fourier modificada. (Cor-
+	tesia da Nasa).
+
+--> 3 Transformações de intensidade e filtragem espacial
+
+	3.1.2 Sobre os exemplos deste capítulo
+	Apesar de as transformações de intensidade e filtragem
+	espacial cobrirem uma ampla variedade de aplicações,
+	a maioria dos exemplos apresentados neste capítulo é
+	de aplicações para o realce de imagens. Realce é o pro-
+	cesso de manipular uma imagem de forma que o resultado
+	seja mais adequado do que o original para uma aplicação
+	específica. A palavra específica é importante neste contexto,
+	porque reconhece desde o início que as técnicas de realce
+	são orientadas ao problema. Dessa forma, por exemplo,
+	um método bastante útil para realçar imagens de raios X
+	pode não ser a melhor técnica para realçar imagens de
+	satélite capturadas na banda infravermelha do espectro
+	eletromagnético. Não existe uma “teoria” geral para o
+	realce de imagens.
+
+	3.2 Algumas funções básicas de
+	transformação de intensidade
+	As transformações de intensidade estão entre as
+	mais simples de todas as técnicas de processamento de
+	imagens. Os valores dos pixels antes e depois do proces-
+	samento serão representados por r e s, respectivamente.
+	Como indicado na seção anterior, esses valores estão re-
+	lacionados por uma expressão da forma s = T(r), onde T
+	é uma transformação que mapeia um valor de pixel r em
+	um valor de pixel s. Como estamos lidando com variáveis
+	digitais, os valores de uma função de transformação nor-
+	malmente são armazenados em um arranjo unidimensio-
+	nal e os mapeamentos de r em s são implementados por
+	meio de buscas em tabelas indexadas (table lookups). Para
+	um ambiente de 8 bits, uma tabela indexada contendo os
+	valores de T terá 256 entradas.
+
+	Como uma introdução às transformações de inten-
+	sidade, vejamos a Figura 3.3, que mostra três tipos básicos
+	de funções frequentemente utilizadas para o realce de
+	imagens: linear (transformações de negativo e de iden-
+	tidade), logarítmica (transformações de log e log inverso)
+	e de potência (transformações de n-ésima potência e
+	n-ésima raiz). A função identidade é o caso trivial no qual
+	as intensidades de saída são idênticas às intensidades de
+	entrada. Ela foi incluída no gráfico só para uma abran-
+	gência completa.
+
+	3.2.1 Negativos de imagem
+	O negativo de uma imagem com níveis de inten-
+	sidade na faixa [0, L – 1] é obtido utilizando a trans-
+	formação de negativo mostrada na Figura 3.3, dada pela
+	expressão:
+	s=L–1–r
+	(3.2-1)
+	Reverter os níveis de intensidade de uma imagem
+	dessa maneira produz o equivalente a um negativo fo-
+	tográfico. Esse tipo de processamento é particularmente
+	adequado para realçar detalhes brancos ou cinza incor-
+	porados a regiões escuras de uma imagem,
+
+	3.2.3 Transformações de potência (gama)
+	Figura 3.4 (a) Mamografia digital original. (b) Negativo da imagem
+	obtido utilizando a função de transformação da Equação 3.2-1. (Corte-
+	sia da G.E. Medical Systems.)
+	As transformações de potência apresentam a forma
+	básica:
+	s = crγ
+	Funções de transformação de intensidade. (a) Função de
+	alargamento de contraste. (b) Função de limiarização.
+
+	tivo (Poynton, 1996).
+	A correção gama é importante quando uma ima-
+	gem precisa ser exibida na tela de um computador como
+	exatidão. Imagens que não são adequadamente corrigi-
+	das podem ter uma aparência desbotada ou, o que é mais
+	provável, escura demais. Tentar reproduzir as cores com
+	exatidão também requer algum conhecimento da corre-
+	ção gama porque a variação do valor de gama altera não
+	apenas a intensidade como também as proporções de ver-
+	melho, verde e azul em uma imagem colorida. A correção
+	gama tem se tornado cada vez mais relevante nos últimos
+	anos, à medida que o uso de imagens digitais para fins
+	comerciais na Internet tem aumentado. Não é incomum
+	que imagens criadas para um site popular da rede sejam
+	vistas por milhões de pessoas, a maioria das quais com
+	diferentes monitores e/ou configurações de monitor.
+
+	Realce de contraste utilizando
+	transformações de potência.
+	Além da correção gama, as transformações de potência
+	são úteis para a manipulação de contraste para uso geral. A
+	Figura 3.8(a) mostra uma imagem de ressonância magnética
+	(MRI) de uma coluna vertebral humana na região torácica
+	superior com uma fratura-luxação e pinçamento medular. A
+	fratura é visível perto do centro vertical da medula, aproxi-
+	madamente um quarto para baixo em relação à borda su-
+	perior da imagem. Como a imagem é predominantemente
+	escura, uma expansão dos níveis de intensidade é desejável.
+	Isso pode ser feito com uma transformação de potência uti-
+	lizando um expoente fracionário (γ < 1). As outras imagens
+	mostradas na figura foram obtidas por meio do processa-
+	mento da Figura 3.8(a) com a função de transformação de
+	potência da Equação 3.2-3. Os valores de gama correspon-
+	dentes às imagens (b) a (d) são 0,6, 0,4 e 0,3, respectiva-
+	mente (o valor de c é 1 em todos os casos). Notamos que, à
+	medida que gama foi reduzido de 0,6 a 0,4, mais detalhes se
+	tornaram visíveis.
+
+	alargamento de contraste
+	Uma das mais simples funções lineares definidas
+	por partes é a transformação de alargamento de contras-
+	te. Imagens de baixo contraste podem resultar de uma
+	iluminação ruim, de uma faixa dinâmica insuficiente no
+	sensor de imagem ou até mesmo de uma configuração
+	errada da abertura de uma lente no momento da aqui-
+	sição da imagem. O alargamento de contraste é um proces-
+	so que expande a faixa de níveis de intensidade de uma
+	imagem de modo a incluir todo o intervalo de intensida-
+	des do meio de gravação ou do dispositivo de exibição.
+
+	Fatiamento de níveis de intensidade
+	Frequentemente, pode ser interessante enfatizar
+	um intervalo específico de intensidades em uma imagem.
+	As aplicações incluem realce de características como mas-
+	sas de água em imagens de satélite e realce de falhas em
+	imagens de raios X. O processo, muitas vezes chamado de
+	fatiamento de níveis de intensidade, pode ser implementado
+	de várias formas, mas a maioria constitui uma variação
+	de dois temas básicos. Uma metodologia consiste em exi-
+	bir em um valor (digamos, o branco), todos os valores na
+	faixa de interesse e, em outro (digamos, o preto), todas
+	as outras intensidades. Essa transformação, mostrada na
+	Figura 3.11(a), produz uma imagem binária. A segun-
+	da metodologia, baseada na transformação da Figura
+	3.11(b), clareia (ou escurece) a faixa desejada de intensi-
+	dades, mas mantém inalterados todos os outros níveis de
+	intensidade da imagem.
+
+	Fatiamento por planos de bits
+	Os pixels são números digitais compostos de bits.
+	Por exemplo, a intensidade de cada pixel em uma ima-
+	gem em escala de cinza de 256 níveis é composta de 8 bits
+	(isto é, um byte). Em vez de enfatizar faixas de intensi-
+	dade, poderíamos enfatizar a contribuição feita à aparên-
+	cia final da imagem por bits específicos. Como ilustra a
+	Figura 3.13, uma imagem de 8 bits pode ser considerada
+	composta de oito planos de 1 bit, com o plano 1 contendo
+	o bit menos significativo de todos os pixels da imagem, e
+	o plano 8, todos os bits mais significativos.
+
+	para obter a Figura 3.15(a), multiplicamos o plano de bits
+	8 por 128, o plano de bits 7 por 64, e somamos os dois
+	planos. Apesar de as principais características da imagem
+	original serem restauradas, a imagem reconstruída pare-
+	ce ter pouco contraste, especialmente no fundo. Isso não
+	é de surpreender, já que dois planos podem produzir ape-
+	nas quatro níveis de intensidade distintos. Adicionar o
+	plano 6 à reconstrução melhorou a situação, como mos-
+	tra a Figura 3.15(b). Observe que o fundo dessa imagem
+	tem um falso contorno perceptível. Esse efeito é signi-
+	ficativamente reduzido acrescentando o quinto plano à
+	reconstrução, como ilustra a Figura 3.15(c). Utilizar mais
+	planos na reconstrução não contribuiria de maneira im-
+	portante para a aparência dessa imagem. Dessa forma,
+	concluímos que armazenar os quatro planos de bits mais
+	relevantes nos permitiria reconstruir a imagem original
+	em detalhes aceitáveis. Armazenar esses quatro planos
+	em vez da imagem original requer 50% menos espaço de
+	armazenamento (ign
+
+	3.3.2 Especificação de histograma
+	Como sugerido na análise anterior, a equalização
+	de histograma automaticamente determina uma função de
+	transformação que busca produzir uma imagem de saída
+	que tenha um histograma uniforme. Quando um realce
+	automático é desejado, essa é uma boa abordagem por-
+	que os resultados dessa técnica são previsíveis, e sua im-
+	plementação é fácil. Mostraremos, nesta seção, que há
+	aplicações nas quais o realce baseado em um histograma
+	uniforme não é a melhor metodologia. Em particular,
+	algumas vezes é útil poder especificar o formato do his-
+	tograma que desejamos que a imagem processada tenha.
+
+	e especificação de histograma como se segue:
+	1. Calcule o histograma pr(r) da imagem em questão
+	e utilize-o para calcular a transformação de equali-
+	zação de histograma na Equação 3.3-13. Arredonde
+	os valores resultantes, sk , para o intervalo de núme-
+	ros inteiros [0, L – 1].
+	2. Calcule todos os valores da função de transformação
+	G utilizando a Equação (3.3-14) para q = 0, 1, 2, … ,
+	L – 1, onde pz(zi) são os valores do histograma especificado. Arredonde os valores de G para números
+	inteiros no intervalo [0, L – 1]. Anote os valores de
+	G em uma tabela.
+	3. Para cada valor de sk = 0, 1, 2, … , L – 1, utilize os
+	valores de G obtidos no passo 2 para encontrar o
+	valor correspondente de zq , de forma que G(zq) seja
+	o mais próximo de sk e grave esses mapeamentos de
+	s em z. Quando mais de um valor de zq satisfizer um
+	determinado sk (isto é, o mapeamento não é único),
+	escolha o menor valor por convenção.
+	4. Forme a imagem especificada primeiro equalizando
+	o histograma da imagem de entrada e depois mapean­
+	do todos os valores dos pixels equalizados, sk, dessa
+	imagem no valor correspondente zq na imagem espe-
+	cificada utilizando os mapeamentos do passo 3. Como
+	no caso contínuo, o passo intermediário de equalizar
+	a imagem de entrada é conceitual. Esse passo pode
+	ser pulado combinando as duas funções de transfor-
+	mação, T e G–1, como demonstra o Exemplo 3.8.
+
+	3.4.2 Convolução e correlação espacial
+	Há dois conceitos estreitamente relacionados que
+	devem ser bem compreendidos ao realizar a filtragem
+	espacial linear. Um consiste na correlação, e o outro na con-
+	volução. A correlação é o processo de mover uma máscara
+	pela imagem e calcular a soma dos produtos em cada posição,
+	exatamente como explicado na seção anterior. O fun-
+	cionamento da convolução é o mesmo, exceto o fato de o
+	primeiro filtro ser rotacionado a 180°. A melhor forma de
+	explicar as diferenças entre os dois conceitos é pelo exem-
+	plo. Começamos com uma ilustração unidimensional.
+
+	3.5 Filtros espaciais de suavização
+	Os filtros de suavização são utilizados para borra-
+	mento e redução de ruído. O borramento é aplicado em
+	tarefas de pré-processamento, como remoção de peque-
+	nos detalhes da imagem antes da extração de objetos
+	(grandes) e conexão de pequenas descontinuidades em
+	linhas ou curvas. A redução de ruído pode ser obtida pelo
+	borramento com um filtro linear e também pela filtragem
+	não linear.
