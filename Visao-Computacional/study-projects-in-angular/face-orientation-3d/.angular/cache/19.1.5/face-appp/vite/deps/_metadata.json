@@ -1,0 +1,55 @@
+{
+  "hash": "91e2065e",
+  "configHash": "b7dc4ad1",
+  "lockfileHash": "036d260f",
+  "browserHash": "703f64ac",
+  "optimized": {
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "d0d628b5",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "43255786",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "c353a8e7",
+      "needsInterop": false
+    },
+    "@mediapipe/camera_utils": {
+      "src": "../../../../../../node_modules/@mediapipe/camera_utils/camera_utils.js",
+      "file": "@mediapipe_camera_utils.js",
+      "fileHash": "b403a50e",
+      "needsInterop": true
+    },
+    "@mediapipe/drawing_utils": {
+      "src": "../../../../../../node_modules/@mediapipe/drawing_utils/drawing_utils.js",
+      "file": "@mediapipe_drawing_utils.js",
+      "fileHash": "4a8a2735",
+      "needsInterop": true
+    },
+    "@mediapipe/face_mesh": {
+      "src": "../../../../../../node_modules/@mediapipe/face_mesh/face_mesh.js",
+      "file": "@mediapipe_face_mesh.js",
+      "fileHash": "e68f079f",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-BVJAC7GK": {
+      "file": "chunk-BVJAC7GK.js"
+    },
+    "chunk-JFCX2YSL": {
+      "file": "chunk-JFCX2YSL.js"
+    },
+    "chunk-3OV72XIM": {
+      "file": "chunk-3OV72XIM.js"
+    }
+  }
+}

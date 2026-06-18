@@ -1,0 +1,47 @@
+# Resumo de Comandos do Pyenv
+
+## Instalação de Versões
+- **Instalar uma versão do Python:**  
+  `pyenv install <versão>`  
+  Exemplo: `pyenv install 3.10.7`  
+
+- **Listar versões disponíveis para instalação:**  
+  `pyenv install --list`  
+
+- **Remover uma versão instalada:**  
+  `pyenv uninstall <versão>`  
+
+## Gerenciamento de Versões
+- **Listar as versões instaladas no sistema:**  
+  `pyenv versions`  
+
+- **Definir a versão global do Python:**  
+  `pyenv global <versão>`  
+  Exemplo: `pyenv global 3.10.7`  
+
+- **Definir a versão local (diretório específico):**  
+  `pyenv local <versão>`  
+  Exemplo: `pyenv local 3.9.5`  
+
+- **Definir a versão temporária para a sessão atual:**  
+  `pyenv shell <versão>`  
+  Exemplo: `pyenv shell 3.8.12`  
+
+- **Checar a versão atualmente ativa:**  
+  `pyenv version`  
+
+## Atualização
+- **Atualizar o Pyenv:**  
+  `pyenv update`  
+
+---
+
+## Comentário sobre o Funcionamento do Pyenv
+O **Pyenv** é uma ferramenta leve e eficiente para gerenciar múltiplas versões do Python em um único sistema. Ele ajusta o `PATH` para priorizar versões específicas do Python instaladas por ele, permitindo:
+
+1. Uso de versões diferentes do Python sem interferir na instalação do sistema.
+2. Configuração de versões específicas para projetos ou para uso global.
+3. Alternância fácil entre versões para atender às necessidades de desenvolvimento.
+
+Ideal para desenvolvedores que lidam com projetos em diferentes versões do Python.
+

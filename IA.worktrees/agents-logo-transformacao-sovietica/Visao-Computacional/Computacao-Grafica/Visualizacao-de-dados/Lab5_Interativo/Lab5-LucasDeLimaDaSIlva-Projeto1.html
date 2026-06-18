@@ -1,0 +1,107 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=bar-data-color&theme=dark&code=PYBwLglsB2AEC8sDeAoWtJgDYFMBcya6GOAHmAQOQBqwWArgLY6wAmLAxgBb0BuAhrH4cm9LP1aCQwAE5DowWAAoATAAYAjABYhsdSoDMASlgBaWADF-ALxzRJsAML8Z0fgC-ARoPMAVfiA4MsAAh2awAAoAQpQANLAA9AmwvgC3YGKKDrwQAM70_FgQ1vwA5wDHwETouABmFLCUHHZgQZToSbAAgkXQXPzM0GBZimDpmUQAvrFEpF2keQSoxBgAnoFUHPytAOayq3HVsG7MVF0KcR3JaRlYI7A4EKSKABpHJzgAMsBbkDBUjAgrFYuEOKw-AHEAgQDGp4olkgBRXIgMqKFoyFijcZ3B6wdFPKorSRgfgEADalHUGgMlypmi0dOpAFYmZoAGxsjQAdi5AA4uQBONnqEUaEUqEW0gC6Uxm6FW80WhBWYHW-EaAgYODBxA-VFoDGYbE4PAEykYjCMlwRKRx90ez1gAE13gMvj9tlBoACgSCdfK9e6oSACMy1FdYMjUaV0UNMfiMPa8QTnnKiMM6JBQyriGAZBAdjsglR-Atcrr0LVZIxtq0ZARavRoBw_nAlKiZANciZlitYLgwBhgFmICBHDBWkMELAAAYAEiQne75LU0oAdB9JgAeTwyBIAPl8wFJWAIi-XjFyq43JP4k1gltnAG4juhMRlXMPR-PJy1XyskzpuguRBBAOC5BSRx9sS2xkrA5JvsQKh8mo65wkh6BaGoWjruygb9rABh8uy67cgR_YqIKzLoRRKwqBoGjrsydHENy7K4XyrFYYK3LroK3GwMygpMQYgnEXyzGCYKxF4eJ7F4Uh0qsWqGyNN4MiVsQECtIwADKaq4EsmGwBwdCyFQADEWjsnyKhRIykYTnIqKsDIlTKDYYhGEh0xITgjAgP0uTKjB_Y6QFBmrEZuaEegZl3A2jSWXy3KOIiFhdO0trObAACOBT2IoqK5LkLiJowwD0KBnnWGIpniMEPlxbAQGEW1xAdbKkzPkAA
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.5.1/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-graph-modularity@2/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.5.1/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, 'dark', {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  title: {
+    text: 'Volume de chuva acumulada por ano (2014 a 2023) - Fazenda Carnaúba - Taperoá - PB', // Título da visualização
+    left: 'center'  // Alinhamento do título
+  },
+  xAxis: {
+    type: 'category',
+    name: 'Ano',  // Título do eixo X
+    nameLocation: 'middle',
+    nameGap: 30,  // Espaço entre o título e o eixo
+    data: ['2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023']
+  },
+  yAxis: {
+    type: 'value',
+    name: 'Volume de chuva (mm)',  // Título do eixo Y
+    nameLocation: 'middle',
+    nameGap: 50  // Espaço entre o título e o eixo
+  },
+  tooltip: {
+    trigger: 'axis',
+    formatter: function (params) {
+      let tooltipContent = `${params[0].name}<br/>Total: ${params[0].data} mm`;
+      return tooltipContent;
+    }
+  },
+  series: [
+    {
+      data: [
+        280.0,
+        404.6,
+        386.7,
+        295.0,
+        211.5,
+        764.8,
+        497.9,
+        591.3,
+        388.5,
+        938.6,
+        376.6
+      ],
+      type: 'bar',
+      itemStyle: {
+        color: '#4682B4'  // Cor padrão (azul)
+      },
+      emphasis: {
+        itemStyle: {
+          color: '#87CEFA'  // Cor quando passar o mouse (azul claro)
+        }
+      }
+    }
+  ]
+};
+
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=scatter-large&theme=dark&code=PTAEBEEMBdIZwKbVAewE4EsDmGB2kAbAKAGMVc5kATGSUAXlAG0jRQBvUSXFALlABMABgCMAZgA0oaClgEA-iQAWAVwBukeQFst_AQA4hAOiGgAvhNYcuPPaIAsUmXMWqN23aHtD7RgGzmlmyc3HyCogCsTrKEruqaOvxi-n5GAOyBViG24SJ-0S7K8R56AJwRJpnBNmHCImkFsUXuiYIiIkYRVdahdiL6jQrNCZ5pfr763dm1oqWDcS2e9qVpRqVTNXbC88MloBGlHWIbveECIjtuI0n6-p0nOcICApfFraXJ_g8zApLSMUMrnsxGMvmYiABdADcRCIIFAAGFCCQVARIGguKANJhIABzgDHKFACC0oDQCDRBKJkGpPBs0AQmHQpHIlCx6IwkBINIRVwYoBosCMWkgAAcABTijAMrRSPBUBAADwAlAwAHwcKwYABmoCluAVioY9EYQlV7CsbHJ0BUaFwPRy0pJRlCUmxnO5KD2pjMUNA8IA8qBRZgtAgMGhaUTcITpCT2TiqVYzMSCIhNWw2GQKMh3VyafynVojM4mkCdKAALQC2hMeVKqugEQQksAhYjGGZslIW326b8Isunhujn5r2tPOe8yd8xEMzKmFwsAB0W4gCvCDgAqJWDQAEPtRgyEQUKLoBhyPyLWxz9ACAh-NfMwzFdB-AByABqo6pNdAwy4FEtFRSAaGDdAaj1OpjjoJ4xFVasADFIAALwQA06CRO1IAAL4AIzoasABUxUZFA90bAAFAAhd8gkze9tTfUB3xIdCGTQOjLX-UUPwEABSd82HhABBAArFRKAQTFRRQOAMF_KgiWgABbm0CBQZN6JkFACHPXiM2fTAsCwRkP0gRUMDgLiu21dARWgDj-G1FRcBIc9L3FUV0UgLQ4HNbi2HvZAdL0jBRQRcgGVwZBGAAAwAEnYby0F8uAmCEFt8DDMwAB48LQYA1W_RNCX4JKUrSjKW0FSAUx0OKZy7a1e3-XT9MimL2Ka2c2AsKxQrwlBFUfbjtQQGBbQfQyu1qgAtFAUE8J8uzYABPETLLgABJA0lQ_HhcAQd9Au6ZrNxkclH3BLsbu6e9TINUbZtofgmC_H9Y0ouTpQwDQ6JYkrOV_AA5BAsBgP7IHfCF6KChAmI_RjoBs59Tw_EQhEE4SwHEySGT_B70JoLSrEVTarOe581tFabWJgcH0DW1G2GyumRJ4Fma1gfhJx5K5hTFKUZXVUBB1CZUpH9XGeC3MgtCJbkGSwdBOTgbi2YAGRQJWL1wD8tAwKgqHvLm2YAcTFJIhFJ9aKbgKmbxpumNAIFRjrh0A2Y_IG8VjeMdDN3yEG13XyANo2TY9jXg8tgyIhtvr6PmxbPBYLsVup2mPzweSFS5thya23bDTezLuP6jPTugZ2PzgAgjcZAvQCLqyS_25hMs9thKHRZihG74knqbIRE8zO7YasRBME3N7uMz1ng59z6iW--Tz3-wea-zliCM4wfat50dPV5eJBYlItRcHPnx1JNVTVAAB-MWZSMG-PFAfgzSl-Fvw08ktyyXXn9OSp0iwAGUa73kdqtMg_8PwAGJ7B-H0AIai9gTqrTOpmEkoolDwEpjNVaECoHTQXrA3S6BEH6DSAiAAoohESmCsG9VWndJO89Tre0BivUAYMIYb2hlvWuu90TN0PgmD0_Mz4igviLegGpr7HxpB_XKoBTDPyUTiT0H8v6SxxqAP-6BNxe3BpDNQoCsEkLWtAohXY4FUJYggxCiE_BiHsGkZht1B64PwfJB2djMzWNseQ-xlC0CIJcfYBOQgvFsNOuw1hEI5xQiAA
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.5.1/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-graph-modularity@2/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.5.1/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, 'dark', {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    // Dataset original
+const data = [
+  { ano: 2013, total_chuva_mm: 280.0 },
+  { ano: 2014, total_chuva_mm: 404.6 },
+  { ano: 2015, total_chuva_mm: 386.7 },
+  { ano: 2016, total_chuva_mm: 295.0 },
+  { ano: 2017, total_chuva_mm: 211.5 },
+  { ano: 2018, total_chuva_mm: 764.8 },
+  { ano: 2019, total_chuva_mm: 497.9 },
+  { ano: 2020, total_chuva_mm: 591.3 },
+  { ano: 2021, total_chuva_mm: 388.5 },
+  { ano: 2022, total_chuva_mm: 938.6 },
+  { ano: 2023, total_chuva_mm: 376.6 }
+];
+
+// Calcular a variação em relação ao ano anterior
+const variacaoChuva = data.map((item, index) => {
+  if (index === 0) {
+    return { ano: item.ano, variacao_mm: 0 }; // O primeiro ano não tem variação
+  } else {
+    const variacao = item.total_chuva_mm - data[index - 1].total_chuva_mm;
+    return { ano: item.ano, variacao_mm: variacao };
+  }
+});
+
+// Opções do gráfico
+option = {
+  title: {
+    text: 'Variação da chuva acumulada por ano (2013 a 2023) - Fazenda Carnaúba - Taperoá - PB',
+    left: 'center',
+    top: '2%'  // Ajuste a posição do título
+  },
+  tooltip: {
+    trigger: 'axis',
+    formatter: function (params) {
+      let tooltipContent = `${params[0].name}<br/>Variação: ${params[0].data} mm`;
+      return tooltipContent;
+    }
+  },
+  toolbox: {
+    feature: {
+      dataZoom: {
+        yAxisIndex: 'none'
+      },
+      restore: {}
+    }
+  },
+  legend: {
+    data: ['Variação Positiva', 'Variação Negativa'],
+    left: 'left',
+    top: '10%'  // Ajuste da legenda
+  },
+  xAxis: {
+    type: 'category',
+    name: 'Ano',
+    data: variacaoChuva.map(item => item.ano),  // Anos como categorias
+    nameLocation: 'middle',
+    nameGap: 30
+  },
+  yAxis: {
+    type: 'value',
+    name: 'Variação em mm',
+    nameLocation: 'middle',
+    nameGap: 50
+  },
+  dataZoom: [
+    {
+      type: 'inside',
+      xAxisIndex: [0]
+    },
+    {
+      type: 'slider',
+      xAxisIndex: [0],
+      start: 0,
+      end: 100
+    }
+  ],
+  series: [
+    {
+      name: 'Variação Positiva',
+      type: 'bar',
+      data: variacaoChuva.map(item => item.variacao_mm >= 0 ? item.variacao_mm : 0),  // Valores positivos
+      itemStyle: {
+        color: '#4682B4'
+      },
+      emphasis: {
+        itemStyle: {
+          color: '#87CEFA'
+        }
+      }
+    },
+    {
+      name: 'Variação Negativa',
+      type: 'bar',
+      data: variacaoChuva.map(item => item.variacao_mm < 0 ? item.variacao_mm : 0),  // Valores negativos
+      itemStyle: {
+        color: '#FF6347'
+      },
+      emphasis: {
+        itemStyle: {
+          color: '#FF4500'
+        }
+      }
+    }
+  ]
+};
+
+
+
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

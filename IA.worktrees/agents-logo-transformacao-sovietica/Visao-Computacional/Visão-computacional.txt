@@ -1,0 +1,78 @@
+* Bibliotecas de visão computacional populares: TensorFlow, OpenVc, MediaPipe e Yolo
+
+Com base no livro Processing Digital Image by Gonzáles and Woods principais técnicas de manipulação, edição e reestruturação de imagens:
+	- Média de imagens pra reduzir ruído
+	
+	- Cálculo do intervalo ideal entre fotos
+	
+	- Subtração de imagens pra realçar movimento
+	
+	- Multiplicação e divisão pra uniformizar a iluminação
+	
+	- Equalização de histograma pra dar um up no contraste
+	
+	- Quantização pra simplificar as cores
+	
+	- Interpolação bilinear e por vizinho mais próximo pra redimensionar as imagens
+	
+	- Apesar de as transformações de intensidade e filtragem
+espacial cobrirem uma ampla variedade de aplicações,
+a maioria dos exemplos apresentados neste capítulo é
+de aplicações para o realce de imagens.
+
+-(a) Função de transformação para a equalização de histograma. (b) Imagem do histograma equalizado (observe a aparência des-
+botada e sem brilho). (c) Histograma de (b).
+
+transformação de equali-
+zação de histograma na Equação 3.3-13. Arredonde
+os valores resultantes, sk , para o intervalo de núme-
+ros inteiros [0, L – 1].
+2. Calcule todos os valores da função de transformação
+G utilizando a Equação 
+
+Fatiamento por planos de bits
+
+Fatiamento de níveis de intensidade
+
+alargamento de contraste
+Uma das mais simples funções lineares definidas
+
+Realce de contraste utilizando
+transformações de potência.
+Além da correção gama, as transformações de potência
+-Resultado da utilização da transformação de fatiamento do tipo ilustrado n
+
+Realce local utilizando estatísticas de
+histograma.
+
+
+
+	-Espectro de Fourier entre outras coisas de fourier.
+
+
+	- Funções de transformação de intensidade. (a) Função de
+alargamento de contraste. (b) Função de limiarização.
+
+-Imagens reconstruídas utilizando (a) planos de bits 8 e
+
+-Fundamentos da filtragem espacial
+
+Utilizando estatísticas de histograma para o
+realce da imagem
+
+Utilizar a correlação ou a convolução para realizar
+a filtragem espacial é uma questão de preferência
+
+
+3.4.2 Convolução e correlação espacial
+
+--> Transformações: As transformações em imagens por meio digital
+	se dá pelas bases em álgebra linear e álgebra vetorial
+	
+	* Base: vetores e matrizes
+	
+	* Transição, rotação e escala
+	
+	* Coordenadas homogêneas
+	
+	* Rotações e translações 3D
