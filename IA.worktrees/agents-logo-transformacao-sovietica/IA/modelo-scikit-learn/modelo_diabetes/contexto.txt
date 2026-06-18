@@ -1,0 +1,5 @@
+--> contexto:  Um laboratório de análise clínicas, com base em dados de pacientes que realizaram exames de diabetes,
+    gostaria de prever, com base em características com idade, peso e altura, qual o resultado do exame para novos pacientes.
+        Para isso, iremos treinar um algoritmo supervisionado (dado que temos dados reais dos resultados) para criar
+    um modelo preditivo que atenda à necessidade deste laborátorio
+

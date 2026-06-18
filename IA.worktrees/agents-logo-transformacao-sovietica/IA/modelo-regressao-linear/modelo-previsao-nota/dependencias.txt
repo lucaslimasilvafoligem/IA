@@ -1,0 +1,10 @@
+sckit-learn
+scipy
+pandas
+matplotlib
+statsmodels
+fastapi
+pingouin
+uvicorn
+pydantic
+joblib
