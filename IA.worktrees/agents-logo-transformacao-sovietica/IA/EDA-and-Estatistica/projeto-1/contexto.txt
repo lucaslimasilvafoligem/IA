@@ -1,0 +1,3 @@
+O contexto que iremos analisar neste módulo de análise exploratória é do segmento de telecom. A empresa possui três conjuntos de dados de Clientes e serviços, com uma variável que determina se o cliente abandonou (churn) ou não e empresa de telecom.
+
+O intuito é que com estes conjuntos de dados é com baseem algumas hipóteses que iremos formular é que serão respondidaspelo EDA, possa obter alguns insights iniciais para a construção de inteligência artificial que possa "prever" o abandono de clientes ativos

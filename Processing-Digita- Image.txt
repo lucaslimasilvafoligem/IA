@@ -1,0 +1,182 @@
+<*> Processing Digital Image - By Conzales and Wood <*>
+
+* Matérias : preparação introdutória em análise matemática, vetores, matrizes, probabilidade, estatística, sistemas lineares e programação de computadores. 
+
+* Objetivos:
+	• uma introdução mais abrangente no início do livro
+	às ferramentas matemáticas utilizadas no processamento de imagens;
+	• uma explicação mais aprofundada das técnicas de
+	processamento de histogramas;
+	• explicação dos algoritmos mais complexos com resumos passo a passo;
+	Prefácio
+	Quando um texto pode ser lido sem esforço, muito empenho foi dedicado a escrevê-lo.
+	Enrique Jardiel Poncela
+	• uma explicação mais profunda da convolução e correlação espaciais;
+	• uma introdução à teoria de conjuntos fuzzy e sua
+	aplicação ao processamento de imagens;
+	• uma revisão do conteúdo sobre o domínio da frequência, começando com os princípios básicos e demonstrando como a transformada discreta de Fourier resulta da amostragem de dados;
+	• uma cobertura sobre a tomografia computadorizada
+	(CT, de computerized tomography);
+	• esclarecimentos dos conceitos básicos no capítulo
+	sobre as wavelets;
+	• uma revisão do capítulo sobre a compressão de dados para incluir mais técnicas de compressão de vídeo, padrões atualizados e marcas d’água;
+	• uma expansão do capítulo sobre morfologia para
+	incluir a reconstrução morfológica e uma revisão da
+	morfologia em níveis de cinza;
+	• uma expansão da cobertura sobre a segmentação
+	de imagens para incluir técnicas mais avançadas de
+	detecção de bordas, como o algoritmo de Canny, e
+	um tratamento mais abrangente da limiarização de
+	imagens;
+	• uma atualização do capítulo sobre a descrição e representação de imagens;
+	• uma simplificação do conteúdo sobre reconhecimento estrutural de objetos
+
+--> Capítulo 1: Introdução
+
+	--> 1.1 - O que é processamento digital de imagens:
+		Uma imagem pode ser definida como uma função bidimensional, f (x, y), em que x e y são coordenadas
+		espaciais (plano), e a amplitude de f em qualquer par de coordenadas (x, y) é chamada de intensidade 
+		ou nível de cinza da imagem nesse ponto. Quando x, y e os valores de intensidade de f são quantidades finitas
+		e discretas, chamamos de imagem digital.
+		
+	* Níveis de processamento: Um paradigma útil seria levar em consideração três tipos de processos computacionais nessa
+		linha contínua: processos de níveis baixo, médio e alto. Os processos de nível baixo envolvem operações
+		primitivas, como o pré-processamento de imagens para reduzir o ruído, o realce de contraste e o aguçamento de
+		imagens. Um processo de nível baixo é caracterizado pelo fato de tanto a entrada quanto a saída serem imagens.
+		O processamento de imagens de nível médio envolve tarefas como a segmentação (separação de uma imagem em
+		regiões ou objetos), a descrição desses objetos para reduzi-los a uma forma adequada para o processamento
+		computacional e a classificação (reconhecimento) de objetos individuais. Um processo de nível médio é
+		caracterizado pelo fato de suas entradas, em geral, serem imagens, mas as saídas são atributos extraídos dessas
+		imagens (isto é, bordas, contornos e a identidade de objetos individuais). Por fim, o processamento de nível
+		alto envolve “dar sentido” a um conjunto de objetos reconhecidos, como na análise de imagens e, no extremo
+		dessa linha contínua, realizar as funções cognitivas normalmente associadas à visão.
+	
+	--> 1.2 As origens do processamento digital de imagens: A principal fonte de energia para imagens utilizada atual­mente
+		é o espectro eletromagnético de energia. Outras importantes fontes de energia incluem a acústica, a
+		ultrassônica e a eletrônica (na forma de feixes de elétrons utilizados na microscopia eletrônica). Imagens
+		sintéticas, utilizadas para modelagem e visualização, são geradas por computador. Nesta seção, discutiremos
+		resumidamente como as imagens são geradas nessas várias categorias e as áreas nas quais elas são aplicadas.
+		Métodos para converter imagens em formato digital serão discutidos no próximo capítulo. Imagens baseadas na 
+		radiação do espectro EM são as mais familiares, especialmente as imagens nas bandas visuais e de raios X do
+		espectro. Ondas eletromagnéticas podem ser interpretadas como ondas senoidais, de vários comprimentos, que
+		propagam, ou também podem ser vistas como um fluxo de partículas sem massa, cada uma se deslocando em um padrão
+		ondulatório e se movendo na velocidade da luz. Cada partícula sem massa contém uma certa quantidade de energia,
+		denominada fóton. Se as bandas espectrais forem agrupadas de acordo com a energia por fóton, obtemos o espectro
+		mostrado na Figura 1.5, variando de raios gama (mais alta energia) em um extremo a ondas de rádio (mais baixa
+		energia) no outro.
+			
+	--> 1.3 Imagens formadas por raios gama: No entanto, em vez de utilizar uma fonte externa de energia de raios X, o
+		paciente recebe um isótopo radioativo que emite pósitrons à medida que vai se desintegrando. Quando um pósitron
+		colide com um elétron, ambos são destruídos e dois raios gama são emitidos. Eles são detectados, e uma imagem
+		tomográfica é criada utilizando os princípios básicos da tomografia.
+		
+		# Número da banda Nome Comprimento de onda (µm)Características e utilizações
+			1 Azul visível 0,45-0,52 Máxima penetração na água
+			2 Verde visível 0,52-0,60 Bom para a mensuração do vigor de plantas
+			3 Vermelho visível 0,63-0,69 Discriminação de vegetação
+			4 Infravermelho próximo 0,76-0,90 Mapeamento de biomassa e linha costeira
+			5 Infravermelho médio 1,55-1,75 Conteúdo de umidade do solo e vegetação
+			6 Infravermelho termal 10,4-12,5 Umidade do solo, mapeamento térmico
+			7 Infravermelho médio 2,08-2,35 Mapeamento mineral
+		
+		--> 1.3.5 Imagens na banda de micro-ondas: A principal aplicação da obtenção de imagens na banda de micro-ondas
+			é o radar. A característica singular da aquisição de imagens por radar é sua capacidade de coletar
+			dados em praticamente qualquer região a qualquer momento, independentemente do clima ou das condições
+			de iluminação do ambiente. Algumas ondas de radar podem penetrar nuvens e, em certas condições, também
+			podem ver através de vegetação, gelo e areia seca. Em muitos casos, o radar é a única forma de explorar
+			regiões inacessíveis da superfície da Terra. Um sistema de imagem por radar funciona como uma câmera
+			equipada com flash que fornece a própria iluminação (pulsos de micro-ondas) para iluminar uma área no
+			solo e obter uma imagem instantânea. Em vez de uma lente de câmera, o radar utiliza uma antena e o
+			processamento computacional para gravar suas imagens. Em uma imagem de radar, é possível ver apenas a
+			energia na faixa de micro-ondas que foi refletida de volta para a antena do radar.
+		
+		--> 1.3.6 Imagens na banda de rádio: Como no caso da aquisição de imagens no outro extremo do espectro (raios
+			gama), as principais aplicações das imagens obtidas na banda de rádio situam-se na medicina e na
+			astronomia. Na medicina, ondas de rádio são utilizadas em imagens por ressonância magnética (MRI,
+			de magnetic resonance imaging). Essa técnica consiste em posicionar um paciente em um poderoso ímã e
+			fazer com que ondas de rádio passem através de seu corpo em pul sos curtos. Cada pulso de ondas de
+			rádio emitido provoca um pulso de resposta correspondente, que é emitido pelos tecidos do paciente. O
+			local onde esses sinais se originam e sua intensidade são determinados por um computador, que produz
+			uma imagem bidimensional de uma seção do paciente. A MRI pode produzir imagens em qualquer plano. A
+			Figura 1.17 mostra imagens de MRI de um joelho e da coluna vertebral de um ser humano.
+		
+		--> 1.3.7 Exemplos nos quais outras modalidades de imagem são utilizadas Apesar de a obtenção de imagens no
+			espectro eletromagnético ser de longe a mais utilizada, há várias outras modalidades também
+			importantes. Mais especificamente, discutiremos nesta seção a imagem acústica, a microscopia eletrônica
+			e a imagem sintética (gerada por computador). A formação de imagem utilizando “sons” encontra
+			aplicação na exploração geológica, na indústria e na medicina. Aplicações geológicas utilizam o som no
+			extremo inferior do espectro sonoro (centenas de Hz), ao passo que a obtenção de imagens em outras
+			áreas utiliza o ultrassom (milhões de Hz). As aplicações comerciais mais importantes do processamento
+			de imagens na geologia encontram-se na exploração de minérios e petróleo. Para a aquisição de imagens a
+			partir da superfície do solo, uma das principais abordagens consiste em utilizar um grande caminhão com
+			uma grande placa de aço plana. A placa é pressionada no chão pelo caminhão, que sofre vibração
+			por um espectro de frequência de até 100 Hz. A intensidade e a velocidade das ondas sonoras que
+			retornam são definidas pela composição do solo abaixo da superfície. Esses dados são analisados por
+			computador e as imagens são geradas a partir dos resultados dessa análise.
+	
+	--> 1.4 Passos fundamentais em processamento digital de imagens: Aquisição de imagens => Filtragem e realce de imagens	 				
+		=(Suavização ,eliminação de ruído, visão estéreo, Sombras, detecção de bordas)> Restauração de imagens =>
+		Processamento de imagens coloridas => Wavelets e processamento multirresolução => 
+		Compressão => Processamento morfológico => Segmentação =(Separar em áreas)> Representação e descrição
+		=(textura, cor, forma do contorno, gradiente)> Reconhecimento de objetos
+		
+		* Um método bastante útil para realçar imagens radiográficas pode não ser a melhor abordagem para realça
+		imagens de satélite capturadas na banda infravermelha do espectro eletromagnético. Não existe uma “teoria” 
+		geral de realce de imagens. Quando uma imagem é processada para a interpretação visual, o observador é o juiz
+		final do bom funcionamento de um método particular.
+		
+		* A restauração de imagens também é uma área que lida com a melhora visual de uma imagem. No entanto, 
+		diferentemente do realce, que é subjetivo, a restauração de imagens é objetiva, no sentido de que as técnicas
+		de restauração tendem a se basear em modelos matemáticos ou probabilísticos de degradação de imagens. O realce,
+		por outro lado, baseia-se em preferências humanas subjetivas em relação ao que constitui uma imagem “boa”.
+
+		* O processamento de imagens coloridas é uma área que tem ganhado importância em virtude do aumento 
+		significativo da utilização de imagens digitais na Internet. A cor também é utilizada em capítulos posteriores
+		como base para a extração de características de interesse em uma imagem.
+
+		* As wavelets constituem os fundamentos para a representação de imagens em vários níveis de resolução.
+		Em particular, esse material é utilizado neste livro para a compressão de dados de imagens e para a
+		representação piramidal, na qual as imagens são subdivididas sucessivamente em regiões menores.
+		
+		* A compressão, como o nome sugere, lida com as técnicas de redução do armazenamento necessário para salvar uma
+		imagem, ou a largura de banda necessária para transmiti-la. Apesar de a tecnologia de armazenamento ter
+		avançado significativamente ao longo da última década, o mesmo não pode ser dito em relação à capacidade de
+		transmissão. Isso se aplica particularmente nas utilizações da Internet, que é caracterizada por um expressivo
+		conteúdo visual. A compressão de imagens é bem conhecida (talvez inadvertidamente) pela maioria dos usuários de
+		computadores na forma de extensões de arquivos de imagem, como a extensão .jpg, utilizada no padrão de
+		compressão de imagens JPEG (Joint Photographic Experts Group).
+
+		*O processamento morfológico lida com ferramentas para a extração de componentes de imagens úteis na
+		representação e descrição da forma. O material contido neste capítulo dá início a uma transição de processos 
+		nos quais as saídas são imagens para os processos nos quais as saídas passam a ser atributos de imagens, como
+		indicado na Seção 1.1. 
+		
+		* Os procedimentos de segmentação dividem uma imagem em suas partes ou objetos constituintes. Em geral, a 	
+		segmentação autônoma é uma das tarefas mais difíceis do processamento digital de imagens. Um procedimento de 		
+		segmentação de imagens bem-sucedido aumenta as chances de sucesso na solução de
+		problemas que requerem que os objetos sejam individualmente identificados. Por outro lado, algoritmos de 
+		segmentação fracos ou inconsistentes quase sempre asseguram falha no processamento. Em geral, quanto mais 
+		precisa for a segmentação, maiores irão as chances de sucesso no reconhecimento dos objetos. A representação e 
+		a descrição quase sempre partem do resultado de um estágio de segmentação, que normalmente são dados primários
+		em forma de pixels, correspondendo tanto à fronteira de uma região (por exemplo, o conjunto de pixels que 
+		separa uma região da imagem de outra) como a todos os pontos dentro dela. De qualquer forma, em ambos os casos 
+		é necessário converter os dados a uma forma adequada para o processamento computacional. A primeira decisão que
+		deve ser tomada é se os dados devem ser representados como fronteiras ou como regiões completas. A
+		representação por fronteira é apropriada quando o interesse se concentra nas características externas de forma, 			
+		como vértices e pontos de in- flexão. A representação por região é apropriada quando o foco é direcionado às 
+		propriedades internas do objeto, como a textura ou a forma do esqueleto. Em algumas aplicações, essas 
+		representações se complementam. Escolher uma representação constitui apenas uma parte da solução para 
+		transformar dados primários em uma forma apropriada para o subsequente processamento computacional. Um método 
+		também deve ser especificado para descrever os dados de modo que as características de interesse sejam
+		enfatizadas. O processo de descrição, também chamado de seleção de características, lida com a extração de 
+		atributos que resultam em alguma informação quantitaiva de interesse ou que possam ser utilizados para 
+		diferenciar uma classe de objetos de outra. O reconhecimento é o processo que atribui um rótulo (por exemplo, 
+		“veículo”) a um objeto com base em seus descritores. Como detalhamos na Seção 1.1, concluímos nossa abordagem 
+		do processamento digital de imagens com o desenvolvimento de métodos para o reconhecimento de objetos 
+		individuais.
+
+--> 2 Fundamentos da imagem digital
+			
+
+
+

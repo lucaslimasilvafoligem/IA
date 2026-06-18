@@ -1,0 +1,51 @@
+customerId,tenure,Contract,PaperlessBilling,PaymentMethod,MonthlyCharges,TotalCharges,Churn
+1091-NAOYX,2,Month-to-month,Yes,Bank transfer (automatic),70.35,140.70,No
+2813-KVMCE,45,Two year,No,Credit card (automatic),89.20,4014.35,No
+4562-KDJFU,12,Month-to-month,Yes,Electronic check,56.25,675.00,Yes
+7329-LWPKD,8,One year,No,Mailed check,39.85,318.80,No
+3098-NMUEP,19,Month-to-month,Yes,Electronic check,29.99,569.81,Yes
+6531-XNBES,5,Month-to-month,Yes,Electronic check,25.60,128.00,No
+8382-TOSQO,72,Two year,No,Bank transfer (automatic),105.65,7592.00,No
+1093-QXZLP,24,One year,Yes,Credit card (automatic),55.60,1334.40,No
+4029-UXYTO,1,Month-to-month,Yes,Electronic check,20.00,20.00,Yes
+6635-MZPEI,3,Month-to-month,Yes,Bank transfer (automatic),65.90,197.70,No
+8390-WYBCA,11,Month-to-month,No,Mailed check,45.35,498.85,Yes
+1183-VGEZS,6,One year,No,Credit card (automatic),50.20,301.20,No
+5532-FDFGN,15,Month-to-month,Yes,Electronic check,35.65,534.75,Yes
+2451-HWRDC,60,Two year,No,Mailed check,70.10,4206.00,No
+3002-BFGFD,28,One year,No,Bank transfer (automatic),80.45,2252.60,No
+4383-LMCMR,9,Month-to-month,Yes,Electronic check,29.99,269.91,Yes
+1400-VLDPQ,2,Month-to-month,Yes,Electronic check,19.85,39.70,Yes
+5041-KUXZD,52,Two year,No,Credit card (automatic),99.99,5199.48,No
+7190-ZPUPT,16,One year,No,Mailed check,40.00,640.00,No
+3150-LMBWK,1,Month-to-month,Yes,Electronic check,35.85,35.85,Yes
+6501-TURFX,3,Month-to-month,Yes,Bank transfer (automatic),44.25,132.75,No
+5782-XJTEV,23,One year,No,Credit card (automatic),79.10,1819.30,No
+9102-DSPXS,6,Month-to-month,Yes,Electronic check,25.50,153.00,Yes
+2149-GQKSH,18,Month-to-month,Yes,Mailed check,50.00,900.00,Yes
+3283-UGVBT,38,One year,No,Credit card (automatic),65.90,2504.20,No
+4429-ISBXY,72,Two year,No,Bank transfer (automatic),88.75,6390.00,No
+5920-PLMFN,33,One year,No,Mailed check,48.50,1600.50,No
+6171-FWZHX,4,Month-to-month,Yes,Electronic check,22.15,88.60,Yes
+8049-CGYJW,25,One year,No,Bank transfer (automatic),55.55,1388.75,No
+1222-KZRTS,13,Month-to-month,Yes,Mailed check,40.00,520.00,Yes
+3392-TBYRI,7,Month-to-month,Yes,Credit card (automatic),65.00,455.00,No
+4263-DWNKA,22,One year,No,Credit card (automatic),57.45,1263.90,No
+5382-FMEBR,70,Two year,No,Bank transfer (automatic),99.90,6993.00,No
+8031-YZULW,10,Month-to-month,Yes,Electronic check,36.85,368.50,Yes
+9052-SVNLX,8,One year,No,Mailed check,42.00,336.00,No
+3829-KGXDT,1,Month-to-month,Yes,Electronic check,29.95,29.95,Yes
+1103-WMCIG,36,Two year,No,Bank transfer (automatic),105.60,3801.60,No
+6752-MHDUW,21,Month-to-month,Yes,Electronic check,37.80,793.80,Yes
+2140-MKOPQ,9,Month-to-month,Yes,Mailed check,55.25,497.25,No
+9203-IZQBN,30,One year,No,Credit card (automatic),61.40,1842.00,No
+6529-VBZDR,2,Month-to-month,Yes,Electronic check,28.90,57.80,Yes
+7631-TWBNC,11,Month-to-month,Yes,Electronic check,30.00,330.00,Yes
+8320-XYGJK,5,Month-to-month,Yes,Mailed check,48.35,241.75,Yes
+1802-WUVGF,19,Month-to-month,Yes,Credit card (automatic),39.95,759.05,No
+2001-XCUNV,26,One year,No,Bank transfer (automatic),72.30,1879.80,No
+6192-JSDAW,42,Two year,No,Credit card (automatic),95.75,4021.50,No
+4931-MOSCX,3,Month-to-month,Yes,Electronic check,21.60,64.80,Yes
+4092-KVGZS,15,Month-to-month,Yes,Electronic check,33.33,499.95,Yes
+7562-LWZKP,17,Month-to-month,No,Mailed check,46.40,788.80,Yes
+3120-ULYHJ,44,Two year,No,Bank transfer (automatic),89.95,3957.80,No

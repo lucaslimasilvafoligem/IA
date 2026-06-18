@@ -1,0 +1,4 @@
+Uma plataforma online de educaçõ que consegue acompanhar a quantidade de horas que seus alunos passam
+estudando numa determinada trilha, deseja avaliarse esta quantidade de horas influencia na pontuação de teste final.
+
+Para isso, iremos treinar um algoritmo de regressão linear, de forma que seja possível prever a pontuação do teste final, dada a quantidade de horas de estudo.

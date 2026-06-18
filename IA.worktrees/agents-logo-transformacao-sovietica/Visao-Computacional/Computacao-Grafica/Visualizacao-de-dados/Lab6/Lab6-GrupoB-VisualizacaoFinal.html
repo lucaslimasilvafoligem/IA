@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="pt_br" style="height: 100%">
+  <head>
+    <title>Lab 6 - Grupo B - Visualização Final</title>
+    <meta charset="utf-8" />
+    <style>
+      html,
+      body,
+      form,
+      fieldset,
+      table,
+      tr,
+      td,
+      img {
+        margin: 0;
+        padding: 0;
+        font: 100%/150% calibri, helvetica, sans-serif;
+      }
+
+      td,
+      td * {
+        max-height: 30px !important;
+      }
+
+      #orelativo {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      /* Estilo do card */
+      #info-card {
+        position: absolute;
+        top: 9%;
+        left: 25%;
+        width: 320px; /* Largura fixa do card */
+        border: 2px solid #f39c12; /* Borda laranja */
+        background: rgba(
+          255,
+          255,
+          255,
+          0.9
+        ); /* Fundo branco com transparência */
+        color: #2c3e50; /* Texto escuro */
+        padding: 15px;
+        border-radius: 8px; /* Bordas arredondadas */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
+        z-index: 1000;
+        display: none; /* Inicialmente escondido */
+        transition: all 0.3s ease; /* Transição suave */
+      }
+
+      /* Estilo do título dentro do card */
+      #info-card strong {
+        color: #1d1d1c; /* Cor do texto dos títulos */
+      }
+
+      /* Estilo para as barras do gráfico */
+      .graph-bar {
+        background-color: #3498db; /* Azul para as barras */
+        height: 20px; /* Altura das barras */
+        border-radius: 5px; /* Bordas arredondadas */
+        margin: 5px 0; /* Espaçamento entre as barras */
+      }
+
+      /* Estilo do texto nas barras */
+      .bar-label {
+        display: inline-block;
+        width: 50px; /* Largura do rótulo */
+      }
+
+      /* Estilo do botão de fechar (se necessário) */
+      #close-button {
+        background-color: #e74c3c; /* Vermelho */
+        color: white; /* Texto branco */
+        border: none;
+        padding: 8px 12px; /* Padding do botão */
+        border-radius: 5px; /* Bordas arredondadas do botão */
+        cursor: pointer; /* Cursor de ponteiro */
+        margin-top: 10px; /* Espaçamento acima do botão */
+      }
+    </style>
+  </head>
+
+  <body style="width: 100%; height: 100%; margin: 0">
+    <table style="width: 100%; margin: 0px; padding: 0px; border-width: 0px">
+      <tbody>
+        <tr height="10px">
+          <td>UNIVERSIDADE FEDERAL DE CAMPINA GRANDE - UFCG</td>
+          <td style="text-align: right">
+            Disciplina: Visualiza&ccedil;&atilde;o de Dados (TECC)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            CENTRO DE ENGENHARIA EL&Eacute;TRICA E INFORM&Aacute;TICA - CEEI
+          </td>
+          <td style="text-align: right">
+            Professor: Maxwell Guimar&atilde;es de Oliveira
+          </td>
+        </tr>
+        <tr>
+          <td>
+            UNIDADE ACAD&Ecirc;MICA DE SISTEMAS E COMPUTA&Ccedil;&Atilde;O -
+            UASC
+          </td>
+          <td style="text-align: right">Período: 2024.1</td>
+        </tr>
+      </tbody>
+    </table>
+    <div id="header">
+      <h2 style="text-align: center">
+        Projeto de Visualização Interativa de Dados
+      </h2>
+      <h4 style="text-align: center">
+        <u>Grupo B</u>: Gabriel Dantas de Oliveira, Mateus Alves dos Santos,
+        Paulo Hernane Fontes e Silva, Paulo Sérgio de Sousa Nunes, Lucas de Lima
+        da Silva
+      </h4>
+      <p style="text-align: center">&nbsp;</p>
+      <h2 style="text-align: center">
+        <span
+          style="
+            font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+          "
+          ><strong
+            >Formula 1: Evolução de Vitórias das 10 melhores Equipes
+            (1950-2024)</strong
+          ></span
+        >
+      </h2>
+      <p style="text-align: justify; padding: 10px 50px 10px 50px">
+        Este projeto oferece uma análise detalhada das vitórias das principais
+        equipes de Fórmula 1 ao longo dos últimos 74 anos, de 1950 a 2024. Com
+        foco nas 10 equipes mais icônicas da competição - como Ferrari, McLaren,
+        Mercedes, Red Bull, e Williams - você poderá explorar de maneira
+        dinâmica e visual a evolução de suas conquistas.
+      </p>
+    </div>
+    <div id="orelativo">
+      <div
+        id="container"
+        style="max-width: 100%; height: 100vh; padding: 10px 50px 10px 50px"
+      ></div>
+      <div id="info-card" class="info-card">
+        <div id="card-content"></div>
+      </div>
+    </div>
+    <div id="footer" style="height: 2%">
+      <p style="text-align: justify; padding: 20px 50px 0px 50px">
+        <b>Recursos Interativos</b>:
+      </p>
+      <ul style="padding: 0px 50px 10px 75px">
+        <li>
+          Clique nas linhas do gráfico para obter detalhes específicos sobre as
+          equipes e seus pilotos.
+        </li>
+        <li>
+          Visualize as vitórias em 1º, 2º e 3º lugares dos pilotos por cada
+          equipe
+        </li>
+        <li>
+          Descubra os principais pilotos que marcaram a história de suas
+          equipes, como Ayrton Senna pela McLaren e Michael Schumacher pela
+          Ferrari.
+        </li>
+      </ul>
+      <p style="text-align: justify; padding: 20px 50px 0px 50px">
+        <b>Como Navegar</b>:
+      </p>
+      <ul style="padding: 0px 50px 10px 75px">
+        <li>
+          Use os filtros para selecionar uma equipe específica e explorar sua
+          trajetória de vitórias.
+        </li>
+        <li>
+          Clique nas séries do gráfico para exibir informações detalhadas em um
+          cartão interativo, que mostra o número de vitórias, o piloto principal
+          e outros dados importantes.
+        </li>
+        <li>
+          Navegue pelo período de 1950 a 2024 usando o controle deslizante para
+          ver o desempenho ano a ano.
+        </li>
+      </ul>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="https://fastly.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://fastly.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"
+    ></script>
+
+    <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.5.0/dist/extension/dataTool.min.js"></script>
+  -->
+    <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+    <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+    <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+    <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.5.0/dist/extension/bmap.min.js"></script>
+  -->
+
+    <script type="text/javascript">
+      var dom = document.getElementById("container");
+      var myChart = echarts.init(dom, null, {
+        renderer: "canvas",
+        useDirtyRect: false,
+      });
+      var app = {};
+
+      var option;
+
+      const teamColors = {
+        Ferrari: "#FF6F61", // Vermelho claro Ferrari
+        McLaren: "#FFA500", // Laranja claro McLaren
+        Mercedes: "#00B2A0", // Verde claro Mercedes
+        "Red Bull": "#4A8CFF", // Azul claro Red Bull
+        Williams: "#0074D9", // Azul claro Williams
+        "Team Lotus": "#C4D600", // Verde claro Team Lotus
+        Renault: "#F2E800", // Amarelo claro Renault
+        Benetton: "#33CC66", // Verde claro Benetton
+        Brabham: "#FFB84D", // Laranja claro Brabham
+        Tyrrell: "#6699FF", // Azul claro Tyrrell
+      };
+
+      const piloto = {
+        name: "airton senna",
+        melhorTempo: "21:13",
+        vitoriasPrimeiro: 21,
+        vitoriasSegudo: 213,
+        vitoriasTerceiro: 323,
+      };
+
+      const rawData = [
+        [
+          "Ferrari",
+          6,
+          0,
+          3,
+          10,
+          17,
+          19,
+          20,
+          26,
+          26,
+          28,
+          30,
+          31,
+          36,
+          36,
+          37,
+          40,
+          40,
+          42,
+          42,
+          43,
+          43,
+          47,
+          49,
+          50,
+          50,
+          53,
+          59,
+          65,
+          69,
+          74,
+          80,
+          80,
+          82,
+          85,
+          89,
+          90,
+          92,
+          92,
+          94,
+          95,
+          98,
+          104,
+          104,
+          104,
+          104,
+          105,
+          106,
+          109,
+          114,
+          120,
+          126,
+          136,
+          145,
+          160,
+          168,
+          183,
+          184,
+          193,
+          202,
+          210,
+          211,
+          216,
+          217,
+          220,
+          222,
+          222,
+          225,
+          225,
+          230,
+          236,
+          239,
+          239,
+          239,
+          243,
+          244,
+          246,
+        ],
+        [
+          "McLaren",
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          4,
+          8,
+          11,
+          17,
+          20,
+          20,
+          20,
+          20,
+          21,
+          25,
+          26,
+          38,
+          44,
+          48,
+          51,
+          66,
+          76,
+          82,
+          90,
+          95,
+          100,
+          100,
+          100,
+          100,
+          103,
+          112,
+          119,
+          126,
+          130,
+          131,
+          133,
+          134,
+          144,
+          144,
+          152,
+          158,
+          160,
+          165,
+          171,
+          178,
+          178,
+          178,
+          178,
+          178,
+          178,
+          178,
+          178,
+          178,
+          179,
+          179,
+          179,
+          180,
+        ],
+        [
+          "Mercedes",
+          131,
+          0,
+          0,
+          0,
+          0,
+          4,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          10,
+          13,
+          29,
+          45,
+          64,
+          76,
+          87,
+          102,
+          115,
+          124,
+          125,
+          125,
+          127,
+        ],
+        [
+          "Red Bull",
+          9,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          6,
+          15,
+          27,
+          34,
+          47,
+          50,
+          50,
+          52,
+          55,
+          59,
+          62,
+          64,
+          75,
+          92,
+          113,
+          120,
+        ],
+        [
+          "Williams",
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          5,
+          11,
+          15,
+          16,
+          17,
+          18,
+          22,
+          31,
+          40,
+          40,
+          42,
+          44,
+          51,
+          61,
+          71,
+          78,
+          83,
+          95,
+          103,
+          103,
+          103,
+          103,
+          107,
+          108,
+          112,
+          113,
+          113,
+          113,
+          113,
+          113,
+          113,
+          113,
+          113,
+          114,
+          114,
+          114,
+          114,
+          114,
+          114,
+          114,
+          114,
+          114,
+          114,
+          114,
+          114,
+          114,
+        ],
+        [
+          "Team Lotus",
+          32,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          8,
+          8,
+          13,
+          20,
+          23,
+          23,
+          24,
+          29,
+          37,
+          37,
+          37,
+          37,
+          38,
+          38,
+          38,
+          41,
+          43,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45,
+        ],
+        [
+          "Renault",
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          4,
+          7,
+          11,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          16,
+          17,
+          25,
+          33,
+          33,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+        ],
+        [
+          "Benetton",
+          22,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          2,
+          4,
+          5,
+          6,
+          7,
+          15,
+          26,
+          26,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+        ],
+        [
+          "Brabham",
+          34,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          4,
+          6,
+          6,
+          6,
+          8,
+          8,
+          11,
+          14,
+          16,
+          20,
+          22,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+        ],
+        [
+          "Tyrrell",
+          25,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          7,
+          11,
+          16,
+          18,
+          19,
+          20,
+          20,
+          21,
+          21,
+          21,
+          21,
+          22,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+          23,
+        ],
+      ];
+
+      const driverDetails = {
+        Mercedes: [
+          131,
+          1,
+          83,
+          40,
+          27,
+          "Lewis",
+          "Hamilton",
+          "British",
+          "https://upload.wikimedia.org/wikipedia/en/0/05/Mercedes_Benz_Logo_2010.svg", // Logo da Mercedes
+          "https://upload.wikimedia.org/wikipedia/commons/a/a9/Lewis_Hamilton_2018.jpg", // Foto do Lewis Hamilton
+        ],
+        Ferrari: [
+          6,
+          30,
+          72,
+          32,
+          12,
+          "Michael",
+          "Schumacher",
+          "German",
+          "https://upload.wikimedia.org/wikipedia/en/1/1d/Scuderia_Ferrari_logo.svg", // Logo da Ferrari
+          "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpt.wikipedia.org%2Fwiki%2FFicheiro%3ALogotipo_da_Scuderia_Ferrari.svg&psig=AOvVaw2nor96_bUPdBbvnTh04Q3x&ust=1727755103534000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKiIyrvj6YgDFQAAAAAdAAAAABAE", // Foto do Michael Schumacher
+        ],
+        "Red Bull": [
+          9,
+          830,
+          61,
+          30,
+          16,
+          "Max",
+          "Verstappen",
+          "Dutch",
+          "https://upload.wikimedia.org/wikipedia/en/1/1f/Red_Bull_Racing_logo.svg", // Logo da Red Bull
+          "https://upload.wikimedia.org/wikipedia/commons/8/8c/Max_Verstappen_2021.jpg", // Foto do Max Verstappen
+        ],
+        McLaren: [
+          1,
+          102,
+          35,
+          12,
+          8,
+          "Ayrton",
+          "Senna",
+          "Brazilian",
+          "https://upload.wikimedia.org/wikipedia/en/7/7f/McLaren_logo.svg", // Logo da McLaren
+          "https://upload.wikimedia.org/wikipedia/commons/9/91/Ayrton_Senna_1991.jpg", // Foto do Ayrton Senna
+        ],
+        Williams: [
+          3,
+          95,
+          28,
+          12,
+          3,
+          "Nigel",
+          "Mansell",
+          "British",
+          "https://upload.wikimedia.org/wikipedia/en/5/5e/WilliamsF1_logo.svg", // Logo da Williams
+          "https://upload.wikimedia.org/wikipedia/commons/4/44/Nigel_Mansell_2011.jpg", // Foto do Nigel Mansell
+        ],
+        Benetton: [
+          22,
+          30,
+          19,
+          11,
+          8,
+          "Michael",
+          "Schumacher",
+          "German",
+          "https://upload.wikimedia.org/wikipedia/en/7/75/Benetton_Formula_One_team_logo.svg", // Logo da Benetton
+          "https://upload.wikimedia.org/wikipedia/commons/a/a8/Michael_Schumacher_2006.jpg", // Foto do Michael Schumacher
+        ],
+        Renault: [
+          4,
+          4,
+          17,
+          15,
+          9,
+          "Fernando",
+          "Alonso",
+          "Spanish",
+          "https://upload.wikimedia.org/wikipedia/en/f/f4/Renault_Logo.svg", // Logo da Renault
+          "https://upload.wikimedia.org/wikipedia/commons/6/65/Fernando_Alonso_2019.jpg", // Foto do Fernando Alonso
+        ],
+        Tyrrell: [
+          25,
+          328,
+          15,
+          4,
+          1,
+          "Jackie",
+          "Stewart",
+          "British",
+          "https://upload.wikimedia.org/wikipedia/en/5/55/Tyrrell_Logo.svg", // Logo da Tyrrell
+          "https://upload.wikimedia.org/wikipedia/commons/0/05/Jackie_Stewart_2010.jpg", // Foto do Jackie Stewart
+        ],
+        Brabham: [
+          34,
+          137,
+          13,
+          9,
+          7,
+          "Nelson",
+          "Piquet",
+          "Brazilian",
+          "https://upload.wikimedia.org/wikipedia/en/d/d1/Brabham_Logo.svg", // Logo da Brabham
+          "https://upload.wikimedia.org/wikipedia/commons/2/2e/Nelson_Piquet_2010.jpg", // Foto do Nelson Piquet
+        ],
+        "Team Lotus": [
+          32,
+          207,
+          11,
+          2,
+          3,
+          "Mario",
+          "Andretti",
+          "American",
+          "https://upload.wikimedia.org/wikipedia/en/b/b3/Lotus_Cars_Logo.svg", // Logo da Team Lotus
+          "https://upload.wikimedia.org/wikipedia/commons/5/53/Mario_Andretti_2013.jpg", // Foto do Mario Andretti
+        ],
+      };
+
+      //   const teamColors = {
+      //     Ferrari: "#FF6F61", // Vermelho claro Ferrari
+      //     McLaren: "#FFA500", // Laranja claro McLaren
+      //     Mercedes: "#00B2A0", // Verde claro Mercedes
+      //     "Red Bull": "#4A8CFF", // Azul claro Red Bull
+      //     Williams: "#0074D9", // Azul claro Williams
+      //     "Team Lotus": "#C4D600", // Verde claro Team Lotus
+      //     Renault: "#F2E800", // Amarelo claro Renault
+      //     Benetton: "#33CC66", // Verde claro Benetton
+      //     Brabham: "#FFB84D", // Laranja claro Brabham
+      //     Tyrrell: "#6699FF", // Azul claro Tyrrell
+      //   };
+
+      const teamsData = rawData
+        .map((row) => {
+          return row.slice(2).map((value, index) => ({
+            year: 1950 + index,
+            income: value,
+            teamName: row[0],
+          }));
+        })
+        .flat();
+
+      function run() {
+        const teams = [
+          "Ferrari",
+          "McLaren",
+          "Mercedes",
+          "Red Bull",
+          "Williams",
+          "Team Lotus",
+          "Renault",
+          "Benetton",
+          "Brabham",
+          "Tyrrell",
+        ];
+        const datasetWithFilters = [];
+        const seriesList = [];
+
+        echarts.util.each(teams, function (team) {
+          var datasetId = "dataset_" + team;
+          datasetWithFilters.push({
+            id: datasetId,
+            fromDatasetId: "dataset_raw",
+            transform: {
+              type: "filter",
+              config: {
+                and: [
+                  { dimension: "year", gte: 1950 },
+                  { dimension: "teamName", "=": team },
+                ],
+              },
+            },
+          });
+          seriesList.push({
+            type: "line",
+            datasetId: datasetId,
+            showSymbol: false,
+            symbolSize: 12,
+            name: team,
+            encode: {
+              x: "year",
+              y: "income",
+              tooltip: ["income"],
+            },
+            emphasis: {
+              focus: "series",
+              blurScope: "coordinateSystem",
+              lineStyle: {
+                width: 5, // Aumentando a espessura da linha para 5
+              },
+            },
+            itemStyle: {
+              color: teamColors[team], // Usando a cor definida para a equipe
+            },
+            lineStyle: {
+              width: 3, // Espessura padrão da linha
+            },
+          });
+        });
+
+        const option = {
+          animationDuration: 4000,
+          dataset: [
+            {
+              id: "dataset_raw",
+              source: teamsData,
+            },
+            ...datasetWithFilters,
+          ],
+          // title: {
+          //   text: "Formula 1: Evolução de Vitórias das 10 melhores Equipes (1950-2024)",
+          //   left: "center",
+          //   top: "20px",
+          //   textStyle: {
+          //     fontSize: 24,
+          //     fontWeight: "bold",
+          //   },
+          // },
+          tooltip: {
+            order: "valueDesc",
+            trigger: "axis",
+            position: ["8%", "9%"],
+          },
+          legend: {
+            data: teams,
+            bottom: "5%",
+            left: "center",
+          },
+          xAxis: {
+            type: "category",
+            nameLocation: "middle",
+          },
+          yAxis: {
+            name: "Vitórias em Primeiro Lugar",
+            nameLocation: "middle",
+            nameTextStyle: {
+              padding: [0, 0, 20, 0],
+              fontSize: 20,
+              fontWeight: "bold",
+            },
+            axisLabel: {
+              formatter: (value) => value,
+              rotate: 90,
+              textStyle: {
+                align: "center",
+                fontSize: 14,
+                fontWeight: "bold",
+              },
+            },
+          },
+          grid: {
+            left: "7%",
+            right: "7%",
+            bottom: "11%",
+            top: "7%",
+          },
+          series: seriesList.map((series) => ({
+            ...series,
+            symbol: "circle",
+            lineStyle: {
+              width: 3,
+            },
+          })),
+          dataZoom: [
+            {
+              type: "slider",
+              xAxisIndex: 0,
+            },
+            {
+              type: "inside",
+              xAxisIndex: 0,
+            },
+          ],
+        };
+
+        const piloto = {
+          name: "Ayrton Senna",
+          melhorTempo: "21:13",
+          vitoriasPrimeiro: 21,
+          vitoriasSegudo: 213,
+          vitoriasTerceiro: 323,
+        };
+
+        myChart.on("click", function (params) {
+          if (params.componentType === "series") {
+            var clickedTeam = params.seriesName; // Nome do time clicado
+            var clickedYearIndex = params.dataIndex; // Índice do ano clicado
+
+            const infoCard1 = document.getElementById("info-card");
+            const strongElements = document.querySelectorAll(
+              "#info-card .graph-bar"
+            ); // Seleciona todos os <strong> dentro de #info-card
+            strongElements.forEach((element) => {
+              element.style.background = teamColors[clickedTeam]; // Define a nova cor do texto
+            });
+            infoCard1.style.borderColor = teamColors[clickedTeam]; // Define a nova cor da borda
+            // Adiciona box shadow com a mesma cor da borda
+            infoCard1.style.boxShadow = `0 4px 8px ${teamColors[clickedTeam]}`; // Ajuste os valores conforme necessário
+
+            // Atualiza o conteúdo do card com as informações do piloto
+            const cardContent = document.getElementById("card-content");
+            // const container = document.getElementById("container");
+            // container.style.display = "none";
+
+            // Adiciona a URL da logo do time e a foto do piloto
+            const teamLogoUrl = driverDetails[clickedTeam][8]; // URL da logo do time
+            const driverImageUrl = driverDetails[clickedTeam][9]; // URL da foto do piloto
+            const wins1st = driverDetails[clickedTeam][2]; // Vitórias em 1º
+            const wins2nd = driverDetails[clickedTeam][3]; // Vitórias em 2º
+            const wins3rd = driverDetails[clickedTeam][4]; // Vitórias em 3º
+
+            // Cálculo da largura das barras proporcional às vitórias
+            const maxWins = Math.max(wins1st, wins2nd, wins3rd);
+            const barWidth1 = (wins1st / maxWins) * 100; // Percentual da barra 1
+            const barWidth2 = (wins2nd / maxWins) * 100; // Percentual da barra 2
+            const barWidth3 = (wins3rd / maxWins) * 100; // Percentual da barra 3
+
+            cardContent.innerHTML = `
+            <strong><span>Piloto:</span> ${driverDetails[clickedTeam][5]} ${driverDetails[clickedTeam][6]}</strong><br>
+            <strong>Vitórias em 1º:</strong> ${wins1st}<br>
+            <div class="graph-bar" style="width: ${barWidth1}%;"></div>
+            <strong>Vitórias em 2º:</strong> ${wins2nd}<br>
+            <div class="graph-bar" style="width: ${barWidth2}%;"></div>
+            <strong>Vitórias em 3º:</strong> ${wins3rd}<br>
+            <div class="graph-bar" style="width: ${barWidth3}%;"></div>
+            <strong>Time:</strong> ${clickedTeam}<br>
+            <button id="close-button" onclick="document.getElementById('info-card').style.display='none'; container.style.display='block';">Fechar</button>
+        `;
+
+            // Posiciona o card no local do clique
+            const infoCard = document.getElementById("info-card");
+            infoCard.style.display = "block"; // Mostra o card
+          }
+        });
+
+        myChart.setOption(option);
+      }
+
+      function filterTeam(team) {
+        // Função para aplicar o filtro
+        const datasetId = "dataset_" + team;
+        myChart.setOption({
+          series: [
+            {
+              datasetId: datasetId,
+            },
+          ],
+        });
+      }
+
+      run();
+
+      if (option && typeof option === "object") {
+        myChart.setOption(option);
+      }
+
+      window.addEventListener("resize", myChart.resize);
+
+      // Evento para fechar o card
+      document
+        .querySelector(".close-btn")
+        .addEventListener("click", function () {
+          //   const container = document.getElementById("container");
+          //   container.style.display = "block";
+          // adicionar classe active en nody
+
+          // remover
+          const infoCard = document.getElementById("info-card");
+          infoCard.style.display = "none"; // Esconde o card
+        });
+    </script>
+  </body>
+</html>

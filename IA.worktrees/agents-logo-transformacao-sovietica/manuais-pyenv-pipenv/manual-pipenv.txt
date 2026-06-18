@@ -1,0 +1,126 @@
+Pipenv: Gerenciador de Ambientes Virtuais e Dependências
+--------------------------------------------------------
+
+O `pipenv` é uma ferramenta que facilita a criação e o gerenciamento de ambientes virtuais em Python, além de simplificar o gerenciamento de dependências de projetos.
+
+Instalação:
+-------------
+Para instalar o `pipenv`, execute o seguinte comando:
+
+    pip install --user pipenv
+
+Isso instalará a ferramenta globalmente no seu sistema.
+
+--------------------------------------------------------
+
+Principais Comandos
+---------------------
+
+1. Criar ou Entrar no Ambiente Virtual:
+
+    - Criar um ambiente virtual e instalar dependências listadas no `Pipfile`:
+
+        Se você já tiver um `Pipfile`, execute:
+
+            pipenv install
+
+        Isso criará um ambiente virtual e instalará as dependências listadas.
+
+    - Criar um novo ambiente virtual para um projeto e instalar uma dependência:
+
+        Para instalar uma dependência e criar o ambiente virtual automaticamente:
+
+            pipenv install <pacote>
+
+        Exemplo:
+
+            pipenv install requests
+
+    - Entrar no ambiente virtual:
+
+        Para ativar o ambiente virtual, use:
+
+            pipenv shell
+
+2. Gerenciar Dependências:
+
+    - Instalar uma dependência específica:
+
+        Para instalar uma dependência e adicioná-la ao `Pipfile`:
+
+            pipenv install <pacote>
+
+    - Instalar uma dependência em uma versão específica:
+
+        Exemplo de instalação de uma versão específica de um pacote:
+
+            pipenv install <pacote>==<versão>
+
+    - Instalar uma dependência para desenvolvimento:
+
+        Para instalar pacotes de desenvolvimento (como `pytest`), use a flag `--dev`:
+
+            pipenv install <pacote> --dev
+
+    - Remover uma dependência:
+
+        Para remover um pacote do ambiente e do `Pipfile`:
+
+            pipenv uninstall <pacote>
+
+3. Gerenciar o Ambiente Virtual:
+
+    - Listar pacotes instalados:
+
+        Para listar as dependências instaladas no ambiente virtual:
+
+            pipenv graph
+
+    - Verificar se o ambiente está desatualizado:
+
+        Para verificar se algum pacote precisa ser atualizado, use:
+
+            pipenv update
+
+    - Destruir o ambiente virtual:
+
+        Para remover o ambiente virtual completamente:
+
+            pipenv --rm
+
+4. Gerar o `Pipfile.lock`:
+
+    - Gerar o `Pipfile.lock` (lock de versões):
+
+        O `Pipfile.lock` garante que as versões exatas das dependências sejam usadas por todos os membros da equipe. Para gerar ou atualizar o arquivo `Pipfile.lock`:
+
+            pipenv lock
+
+    - Instalar as dependências a partir do `Pipfile.lock`:
+
+        Se você quiser instalar as dependências com base no `Pipfile.lock`:
+
+            pipenv install --dev
+
+5. Verificar o Ambiente e o Python Usado:
+
+    - Verificar a versão do Python no ambiente virtual:
+
+        Para verificar qual versão do Python está sendo usada:
+
+            pipenv --python <versão>
+
+        Exemplo:
+
+            pipenv --python 3.8
+
+--------------------------------------------------------
+
+Benefícios do Pipenv
+----------------------
+
+- **Gerenciamento fácil de ambientes virtuais**: `pipenv` cria e gerencia o ambiente automaticamente.
+- **Arquivo de dependências simplificado**: Usa o `Pipfile` para definir pacotes e suas versões, e o `Pipfile.lock` para garantir versões reprodutíveis.
+- **Segurança**: O `Pipenv` gera o `Pipfile.lock` para garantir que você tenha as mesmas versões de dependências em diferentes máquinas.
+- **Isolamento de dependências**: Facilita o isolamento das dependências de um projeto, evitando conflitos entre projetos.
+

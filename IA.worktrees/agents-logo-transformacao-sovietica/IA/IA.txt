@@ -1,0 +1,438 @@
+--> O que é?
+* Visão técnica e ciêntifica: É um campo da ciência da computação que envolve a criação de agentes inteligentes, que são sistemas que podem racionar, aprender e agir de forma autônoma. A IA é uma área ampla e interdisciplinar, que inclui subcampos como aprendizado de máquina, processamento de linguagem natural, visão computacional e robótica.
+
+* Visão filosófica: A arte de criar máquinas que executam funções que requerem inteligência quando executadas por pessoas.
+
+--> Porque
+# Por que usar inteligência artificial:
+	1 - Automação
+	2 - Tomada de decisão
+	3 - Experiência de cliente
+	4 - Redução de custos
+	5 - Melhorar segurança
+	6 - Ampliar inovação
+	
+					-> Automação
+# Dados -> Algorítimos -> Padrões |
+					-> Decisões 
+--> Linha do tempo
+* Tudo começou com o teste de Turing, onde o próprio questiona se máquinas podem simular humanos. O teste se trata de uma IA e um humano interagindo em uma entrevista,o objetivo é que o humano seja incapaz de definir se a IA é humano ou máquina, então a máquina passa no teste. Desde então a IA evoluiu, tendo 4 linhas de pensamentos principais: pensando humanamente, pensando racionalmente, agindo humanamente e agindo racionalmente.
+
+--> Fundamentos da IA
+* Computação: o computador como o artefato ideal para o sucesso da IA, sistemas operacionais, linguagens de programação e ferramentas.
+
+* Teoria de controle: controle estocástico ótimo, maximizar uma função objetivo sobre o tempo, sistemas de controle biológico e mecânico e sua conexão com a cognição, minimizar "erro".
+
+* Economia: teoria da decisão (portabilidade + utilidade), teoria dos jogos (Von Neuman), Adam Smith - economias como agentes individuais que maximizam seu bem-estar econômico.
+
+* Linguistica: NPL, compreender a linguagem exige compreender o assunto e o contexto, representar o conhecimento de forma que o computador possa utiliza.
+
+* Filosofia: tonou a IA concebível, Mente = máquina (alguns aspectos), conhecimento codificado em linguagem interna, conexão entre o conhecimento e a ação.
+
+* Matemática: compreensão da computação, declarações de certeza lógica, declarações incertas e probabilísticas, teoria da probabilidade, máquina de turing (1939).
+
+* Neurociência: redes neurais artificiais, mapeamento do cérebro, neurônios, aplicações de modelos matemáticos ao estudo do sistema nervoso.
+
+* Psicologia: comportamentalismo, ideia que os seres humanos e animais podem ser considerados máquinas de processamento de informações, processos de transformação do conhecimento bem definidos (ciência cognitiva)
+
+--> Sub áreas da IA  
+
+# Machine learning  
+	1 - Deep learning: Um ramo do aprendizado de máquina que utiliza redes neurais profundas para modelar padrões complexos, como em visão computacional e PLN.  
+	2 - Predictive analytics: Utiliza modelos estatísticos e de aprendizado de máquina para prever resultados futuros com base em dados históricos.  
+
+# Natural language processing (PLN)  
+	1 - Translation: Converte texto ou fala de um idioma para outro, utilizando redes neurais ou estatísticas.  
+	2 - Classification & clustering: Classificação organiza textos em categorias predefinidas como análise de sentimentos; Agrupamento encontra padrões em dados sem categorias predefinidas, como agrupamento de documentos.  
+	3 - Information extraction: identifica e extrai informações específicas (como nomes, datas ou relações) de textos não estruturados.  
+
+# Speech  
+	1 - Speech to text: Transforma áudio em texto escrito, usado em assistentes virtuais e legendagem automática.  
+	2 - Text to speech: Converte texto em fala sintetizada, proporcionando acessibilidade e interação com máquinas.  
+
+# Expert systems: Sistemas baseados em conhecimento que simulam o raciocínio humano para tomar decisões ou fornecer recomendações.  
+
+# Planning, scheduling & optimization: Desenvolve algoritmos para planejar ações, agendar recursos e otimizar processos em problemas complexos, como logística e jogos.  
+
+# Robotics: Integra IA para projetar e controlar robôs que interagem com o ambiente físico de forma autônoma.  
+
+# Vision  
+	1 - Image recognition: Identifica objetos, padrões ou características em imagens, como reconhecimento facial.  
+	2 - Machine Vision: Processa imagens para aplicações industriais, como inspeção ou controle de qualidade.  
+
+--> 3 Types of artificial intelligence
+<> Artificial Narrow Intelligence (ANI)
+	 - Stage-1
+	 - Machine Learning
+	 - Specialises in one area and solves one problem
+	 - Exemples: Síri, Alexa, Cortona
+
+<> Artificial General Intelligence (AGI)
+	- Stage-2
+	- Machine Inteligence
+	- Refers to a computer that is as smart as a human across the board
+
+<> Artificial Super Intelligence (ASI)
+	- Stage-3
+	- Machine Consciousness
+	- An intellect that is much smarter than the best human brains in practically every field
+	
+--> Abordagens de IA
+# Model-Centric Approach (Abordagem Centrada no Modelo)
+	1 - Iniciar o modelo (Init model): Define o modelo e seus hiperparâmetros iniciais.
+	2 - Estimar (Estimate): Treina o modelo com os dados de treinamento (X_train e y_train).
+	3 - Criticar (Criticize): Avalia o modelo com um conjunto de validação (X_valid e y_valid), calculando métricas de desempenho.
+	4 - Iteração: Ajusta os hiperparâmetros ou experimenta novos modelos caso o desempenho seja insatisfatório.
+
+# Data-Centric Approach (Abordagem Centrada nos Dados)
+	<> Melhorar os dados:
+		- Corrigir rótulos incorretos.
+		- Remover outliers.
+		- Ampliar o dataset com mais exemplos representativos.
+		- Garantir maior consistência nos dados de entrada.
+	
+	<> Ciclo contínuo: Ajustar os dados e reavaliar o modelo até obter um desempenho satisfatório.
+	
+--> Aplicações da IA
+
+# Setor Financeiro
+	1 - Análise Preditiva: Previsão de inadimplência.
+	2 - Sistemas de Recomendação: Investimentos.
+	3 - Visão Computacional: Biometria para mobile banking.
+	4 - Detecção de Anomalias: Fraudes.
+	5 - Séries Temporais: Análise de mercado de ações.
+	6 - Processamento de Linguagem Natural (PLN): Chatbots.
+
+# Indústria
+	1 - Manutenção Preventiva: Máquinas e equipamentos.
+	2 - Reconhecimento de Padrões: Detecção de falhas.
+	3 - Análise de Desempenho: Supply chain e controle de qualidade.
+
+# Saúde
+	1 - Medicina Personalizada: Descoberta de medicamentos.
+	2 - Visão Computacional: Análise de imagens.
+	3 - Detecção de Erros: Diagnósticos médicos.
+	4 - Comportamento de Doenças: Pandemias.
+
+# Varejo
+	1 - Análise Preditiva: Previsão de vendas.
+	2 - Sistemas de Recomendação: Ofertas personalizadas.
+	3 - Navegação Virtual: Experiência do cliente.
+	4 - Comportamento do Cliente: Segmentação e previsão de churn.
+
+# Telecomunicações
+	1 - Análise de Receita: Billing.
+	2 - Sistemas de Recomendação: Serviços adicionais.
+	3 - Manutenção Preventiva: Equipamentos e redes.
+	4 - Segmentação de Clientes: Predição de churn.
+
+--> Avanços
+* Redes Neurais Profundas: Arquiteturas como CNNs e Transformers revolucionaram áreas como visão computacional e PLN.
+
+* Processamento de Linguagem Natural: Modelos como ChatGPT e BERT melhoraram significativamente a interação homem-máquina.
+
+* Ética em IA: Pesquisas avançaram na criação de diretrizes para o uso responsável da IA.
+
+* Aprendizado por reforço: Avanços em algoritmos como AlphaGo mostraram o potencial de aprendizado por tentativa e erro.
+
+* Visão computacional: Aplicações como detecção de objetos e reconhecimento facial evoluíram com redes convolucionais.
+
+* Veículos Autônomos: IA possibilita sistemas avançados de direção, mas ainda enfrenta desafios de segurança e regulamentação.
+
+* Segurança Cibernética: IA auxilia na detecção proativa de ameaças e na resposta a ataques cibernéticos.
+
+--> Desafios
+* Dados escassos: Modelos de IA exigem grandes volumes de dados para treinamento eficaz.
+
+* Falta de qualidade nos dados: Dados inconsistentes ou enviesados podem comprometer os resultados da IA.
+
+* Interpretabilidade: Compreender como a IA toma decisões ainda é um desafio para modelos complexos.
+
+* Explicabilidade: Fornecer explicações claras sobre decisões automatizadas é fundamental para confiança e adoção.
+
+* Riscos sociais e éticos: Preocupações como viés algorítmico e impacto no emprego requerem maior atenção.
+
+--> Estatística
+* Serve para análise dados para geração de insights e identificação de padrões. Estas informações podem ser usadas para escolher o modelo de machine leaming ideal para tarefa, para ajustar os parâmetros do modelo e para avaliar o desempenho do modelo
+
+<> Areas
+	- Probabilidade: É a área que estuda as chances de eventos aleatórios ocorreram. Ela é usada para medir a incerteza de eventos, e para fazer previsões sobre o futuro.
+	- Estatística descritiva: É o ramo da estatística que envolve a coleta, organização e resumo de dados, relevando padrões, tendências e características dos mesmos, sem fazer inferência sobre populações maiores
+	- Inferência estatística: É a prática de tirar conclusões ou fazer previsões sobre uma população maior com base em dados de uma amostra representativa, usando métodos estatísticos e probabilísticos.
+
+<> População e amostra:
+	- População: Se refere a todo o conjunto de elementos que compartilham uma características comum. Por exemplo, se estamos interessados nas alturas de todas as pessoas em um país, a população seria todas as pessoas em um país, a população seria todas as alturas de todas as pessoas no país
+	- Amostral: Uma amostra, por outro lado, um subconjunto selecionado da população. É inviável ou impraticável medir ou analisar todas as unidades na população, então usamos uma amostra representativa para fazer inferências ou generalizações sobre a população maior.
+	- Amostragem envolve a seleção cuidadosa de um grupo menor de elementos que deve ser representativo das características da população, permitindo-nos fazer estimativas sobre a população inteira com base nas informações de amostras.
+	# (A) -> População(característica) -> <Técnicas de amostragem> -> Amostra -> <Análise descritiva> -> Informações contidas nos dados -> <Inferência estatística> -> Conclusões sobre as características da população -> <Aplicação> -> (A)
+# Tipos de variáveis
+	1 - Números-quantitativas: intervalo contínuo / contínuas (altura, salário, inflação...). Valores float/double, valores inteiros / discretas (idade, N⁰ empregados, Pro. veículos).
+	2 - Categorias-qualitativas: sem ordem / nominais (raça, cor, sexo, profissão), com ordem / ordinais, escolaridade, faixa etária, ranking de reclamações.
+
+- Teorema do limite central: É um dos principais teoremas da estatística que diz que, quando você pega várias amostras aleatórias de uma população e calcula a média de cada uma, independentemente da forma da distribuição original, essas médias se aproximam de uma distribuição normal (formato de um sino) à medida que o tamanho das amostras aumenta. O teorema é importante porque nos permite  fazer inferências sobre  população com base em uma amostra.
+
+<> Medidas de posição
+	- Média: (n1+n2+n...)/n
+	- Moda: é o que mais se repete
+	- Mediana: se a quantidade de números for ímpar é o do meio, se for par é a medias dos dois centrais
+
+<> Medidas de dispersão
+	- Variância: É a média dos quadrados das diferenças entre cada valor e a média aritimética. Ela oferece uma ideia de quão distantes os valores estão da média, considerando o peso de cada diferença ao quadrado.
+	- Desvio padrão: É a raiz quadrada da variância. Ele expressa a dispersão em termos da mesma unidade dos dados e pe uma medida de dispersão mais comum.
+	- Coeficiente de variação: É o desvio padrão dividido pela média, expresso como porcentagem. Ele indica a variabilidade relativa dos dados em relação à média e é útil para comparar a dispersão entre conjuntos de dados diferentes
+	
+<> Medidas de forma
+	- Assimetria: Indica o grau e a direção da distorção da distribuição em relação à média. Uma assimetria positiva significativa que a cauda direita da distribuição é mais longa (os valores maiores estão espalhados), enquanto uma assimetria negativa significa idade que a cauda esquerda é mais longa
+	- Curtose: Mede o pico ou a "pontuação" da distribuição. Uma curtose alta indica uma distribuição alta mais concentrada (pico mais agudo e cuadas mais pesadas), enquanto uma curtose baixa indica uma distribuição mais achatada (pico menos agudo e cuadas menos pesadas).
+	- Mesocúrtica: A própria curva normal padrão
+	- Platicúrtica: Possui grande achatamento mais que da curva padrão, o que indica que os dados estão mais espalhados(logo, o desvio padrão também é maior)
+	- Leptocúrtica: seu grau de achatamento é menor que o da curva normal padrão (curva naus pontiaguda), indica que idades estão mais concentrados (desvio padrão menor).
+
+<> Correlação
+	- O que é: A correlação na estatística mede a relação entre duas variáveis, indicando se elas têm uma associação linear positiva (aumentam juntas), negativa (uma aumenta enquanto a outra diminui) ou nenhuma correlação. A importância para algoritmos de Machine Learning reside na capacidade de identificar padrões e relações entre variáveis. A correlação ajuda a selecionoar características relevantes para os modelos, melhorando a precisão e interpretabilidade. Também permite ajustar modelos para prever com maior acurácia com base nas relações observadas nos dados.
+	
+	- Coeficiente de Parson: Mede a relação linear entre duas variáveis, veriando de -1 (correlação negativa perfeita) a 1 (correlação positiva perfeita), e 0 para nenhuma correlação. Adequado para variáveis numéricas que possam ter uma relação linear.
+	
+	- Coeficiente de Spearman: Avalia a relação monotônica (não necessariamente linear) entre variáveis, usando uma escala similar ao Person. É útil quando os dados não têm uma relação linear clara ou quando as variáveis não são numericamente escalonáveis.
+	
+	- Uso: Use o coeficiente da correlação de Pearson você espera uma relação Linear entre variáveis numéricas. Use o coeficiente de correlação de Spearman quando não houver uma relação linear clara , ou se as variáveis forem ordinais ou não-númericas , capturando possíveis associações monotônicas.
+	
+<> Representações Gráficas
+	- Histograma: É usado para variáveis numéricas contínuas, mostrando a distribuição dos dados em intervalo de tempo
+	- Gráfico de barras: Aplicável a variáveis categóricas ou discretas, exibindo a contagem ou frequência de cada categoria
+	
+	- Gráfico de dispersão: Usado para mostrar a relação entre duas variáveis númericas, ajudando a identificar padrões ou tendências
+	
+	- Gráfico de linhas: Utilizado para variáveis numéricas ao longo do tempo ou em uma sequência, destacando tendências temporais.
+
+--> EDA com pandas
+*Objetivo: objetivo da Análise Exploratória de dados (EDA - Exploratory Data Analysis) é dar uma boa espiada nos dados antes de começar a fazer coisas mais complicadas. É como investigador curioso que olha primeiro para entender do que se trata. A análise ajuda a descobrir segredos escondidos nos números, padrões estranhos e até erros, para que possamos tomar decisões mais inteligentes e contar histórias mais interessantes com nossos dados. É como a primeira pista em um quebra cabeça gigante de informações.
+* O que é: EDA é um processo sistemático usado em projetos de ciência de dados para entender e resumir as carcterísticas fundamentais de um conjunto de dados.
+# Passos
+	1 - Coleta e preparação de dados
+	2 - Formulação de hipóteses
+	3 - Análise Univariada, Bivariada, Multivariada e Temporal
+	4 - Lidar com valores ausentes e outliers
+	5 - Comunicação dos resultadosO que é
+
+# Tipos de dados ausentes
+	1 - Dados faltantes completamente ao acaso (MCAR - Missing completely at Random). O fato de que um certo valor está faltando não tem nada a ver com os valores de outras váriaveis
+
+	2 - Dados faltantes ao acaso (MAR - Missing at Random). Faltar dados aleatoreamente significa que a propensão para um ponto de dados estar ausente não está relacionada aos dados ausentes, mas está relacionada a alguns dos dados observados.
+
+	3 - Dados faltantes não ao acaso (MNAR MonthlyCharges- Missing not at Random). Duas razões possíveis são que o valor ausente depende do valor hipotético ou o valor ausente dependendo do valor de alguma outra variável. 
+
+# Formulando hipóteses
+	1 - Use a intuição: Comece com suas suspeitas iniciais com base no conhecimento do domínio. Pergunte a si mesmo o que você espera encontrar nos dados.
+
+	2 - Seja Específico: Suas hipóteses devem ser claras e específicas. Evite afirmações vagas, como "os dados têm alguma tendência". Em vez disso, seja concreto, como "o aumento nas vendas está relacionado ao lançamento de um novo produto"
+
+	3 - Testabilidade: Certifique-se de que suas hipóteses possam ser testadas com dados disponíveis. Você deve ser capaz de encontrar evidências nos dados que confirmem ou refutem a hipótese.
+
+	4 - Considere relações: Penseem em como diferentes variáveis podem estar relacionadas. Por exemplo, "a idade dos clientes afeta a taxa de churn?" ou "a localização geográfica influencia as preferências de compra".
+
+ --> Análise Univariada
+ * O que é: A análise univariada é uma abordagem estatística que se concentra na análise de uma única variável em um conjunto de dados. Ela visa compreender as características individuais dessa variável, examinando sua distribuição, medidas resumo (como média e mediana), variabilidade e a preença de vlores atípicos (outliers). Isso ajuda a obter uma visão detalhada das características de uma variável específica, antes de explorar relações com outras variáveis (análise bivariada ou multivariada) durante a análise de dados.
+
+	<> Outilier
+
+	* O que é: um outlier é um dado que é muito diferente dos outor dados e um conjunto de dados. É como um ponto fora da curva. Por exemplo , imagine que vocẽ tem um conjunto de dados que registra a altura de 100 pessoas. A média das alturas éde 170 metros. Um outlier seria uma pessoa que tem 2,50 metros de altura. Essa pessoa é muito mais alta que as outras, então ela é considerada um outlier. Outliers podem ser causados por vários fatores, como erros de medição, dados incompletos ou eventos aleatórios. Eles podem afetar os resultados de uma análise de dados, então é imporyante identificá-los e lidar com eles de forma adequada.
+
+	<> Lidando com outliers
+		* Identificação e documentação: Identifique os outliers em seus dados e documente-os. Compreender a natureza dos outliers é funamental.
+
+		* Remoção: Em alguns casos, você pode optar por remover os outliers do conjunto dedados, desde que isso seja justificável e não distorça a análise.
+		
+		* transformação de dados: aplicar transformações matemáticas aos dados, como logarítimo ou raiz quadrada, pode reduzir o imp\cto dos outliers.
+
+		* Binning (Agrupamento): Dividir os dados em intervalos (bins) pode ajudar a reduzir a influência de outliers ao transformar a variável em categórica.
+	
+	<> Automatização da análise exploratória de dados EDA, beneficios:
+		* Aumento da velocidade e da eficiência: A EDA automatizada pode ser executada muito mais rapidamente do que EDA manual. Isso pode ser importante para conjuntos de dados grandes ou complexos
+
+		* Redução da subjetividade: A EDA automatizada é menos propensa a erros ou vieses humanos. Isso pode levar a análises mais precisas. e confiáveis.
+
+		* Melhor compreensão dos dados: A EDA automatizada pode identificar padrões e tendências que podem não ser óbvios para os analistas humanos. isso pode ajudar a obter uma melhor compreensão dos dados e a tomar melhores decisões
+
+		* pipenv sweetviz
+
+--> Fundamentos de aprendizagem de máquina
+	* Objetivo: O objetivo deste módulo é apresenatr alguns conceitos fundamentais que farão parte de toda jornada de projeto ligado a aprendixado de máquina (machine learnig). Através destes conceitos, será possível entender melhor o landscape de algoritmos e técnicas para se lidar com projetos de Machine Learning, bem como estar atento a possívis desafios que irão energir e como superá-los, em temas como redução de dimensionalidade, overfitting e underfiting, dentre outros.
+
+	# O que é: 
+		
+		* O aprendizado de máquina (machine learnin, em inglês): é um campo da inteligência Artifical que trata do modo como os sistemas utilizam algorítimos e dados paa simular a maneira de aprender dos seres humanos dos seres humanos, como melhora gradual e contínua por meio da experẽncia. Os algorítimos que são construídos aprendenm com os erros de forma automizada, com o mínimo de intervenção humana e após treinados (ou "ensinados") conseguem identificar padrões, fazer previsões, tomar decisões, tudo isso, com base nos dados coletados.
+
+		# ALGORÍTIMOS -> TREINAMENTO -> APRENDIZADO -> PREDIÇÕES E INFERÊNCIA -> EXPERIÊNCIA -> ALGORÍTIMOS | EXPERIÊNCIA -> DADOS -> TREINAMENTO
+
+		* Usam variáveis dependentes e independentes
+
+	# Tipos de aprendizado:
+		 
+		 * Supervisionado: Modelos são treinados usando um conjunto de dados rotulado, aprendendo a mapear entradas mapear entradas para saídas.
+
+		 * Não Supervisionado: Modelos exploraram dados não rótulados para indentificar padrões ou estruturas subjacentes, como agrupamentos, associação ou redução de dimensionalidade.
+
+		 * semi Supervisionado: Combina dados rotulados e não rotulados para melhorar o desempenho do modelo, geralmente utilizando a estrutura não rotulada para aprimorar o aprendizado supervisionado.
+
+		 * Por Reforço: Agentes aprendem a tomar ações em um abiente para maximizar algum tipo de recompensa acumulativa, através de tentativa e erro.
+
+	# Aprendizado Supervisionado
+
+		<> Separar dados para treinamento -> Treinar um algorítimo -> Obter um modelo -> Validar modpor elo com dados não treinados -> Cálcular métricas
+
+	# Aprendizado não Supervisionado
+
+		<> Apresentar todos os dados -> treinar algoritmos -> Obter um modelo -> Validar Rótulados -> Cálcular metricas
+
+	# Aprendizado Semi Supervisionado
+
+		<> Aplicar uma abordagem não supervisionada -> Rotular dados -> Aplicar uma abordagem supervisionada
+	
+	# Aprendizado por Reforço
+
+		<> (Agent) <- State & Reward <- (Environment) <- Actions <- (Agent)
+
+		<> Agente executar uma ação no ambiente -> Ambiente ajustar seu estado com a ação -> Ambiente vai emitir uma recompensa com base no estado -> Ambiente vai devolver o estado e a recompensa ao Agente 
+
+	# Visão geral de Algoritmos 
+
+		* Supervisionados: Regressão, Classificação.
+
+		* Não Supervisionado: Agrupamento, Redução de dimensionalidade, associação.
+
+		* Por Reforço: Valor, Política, Ator-Crítico.
+
+		* Aprendizaso produndo: Redes convolucionais, redes recorrentes grandes,GANs, Trasformes.
+
+		* Computação Neural: Genéticos, Sistemas imunológicos artificiais, Otimização por colônias ou enxame, Computação quântica
+
+		# A maldição da dimensionalidade: foi denominada pelo matemático R. Bellman em seu livro "Progamação Dinâmica" em 1957. A maldição da dimensionalidade diz que a quantidade de dados de que você precisa, para alcançar o conhecimento desejado, impacta exponencialmente o número de atributos necessários. Em resumo refere-se a uma série de problemas que surgem ao trabalhar com dados de alta dimensão . A dimensão de um conjunto de dados corresponde ao número de características existentes em conjunto de dados.
+
+			* O aumento de dimensões gera dados mais esparsos, o desenpenho de um modelo tende a se degradar a partir de um deterinado número de features, mesmo que sejam úteis.
+
+			* Como lidar: Engenharia e seleção de features.
+		
+			# Engenharia de features: 
+				* Seleção: Processo de selecionar um subconjunto de features extraídas. A pontuação de importância da feature e a matriz de correlação podem ser fatores na seleção das features mais relevantes para o treinamento do modelo.
+
+				* Transformação: Pode incluir normalizações, codificação de variáveis categóricas ou transformações matemáticas. Além disso tratar features ausentes ou features que não são válidas.
+
+				* Criação: criar novas features a partir dos dados existentes, usando técnicas como combinação  de variáveis, decomposições e cálculos matemáticos
+
+				* Extração: reduzir a quantidade de dados a ser processada usando técnicas de redução de dimensionalidade. Diferente de um processi de transformação, é utilizando um modelo de ML para este processo.
+
+			# Overfitting e Underfiting:
+				* Underfiting: ocorre quando um modelo de aprendizado de máquina é muito simples para aprender a relação entre as variáveis nos dados de treinamento. Isso pode resultar em um modelo que não é capaz de fazer previsões precisas para dados novos.
+
+				* Overfitting: O corre quando um modelo de aprendizado de máquina aprende a relação entre as variáveis nos dados de treinamento com muito detalhe,, incluindo o ruído nos dados. Isso pode resultar em um modelo que é capaz de fazer previsões precisas para os dados de treinamento, mas não é capaz de generalizar para dados novos.
+
+				* Optimum: O modelo atinge um equilíbrio entre bias (viés) e variance (variância).
+
+			# Tradde-Off:
+				* Tradde-Off: entre Viés e Variância descreve a relação entre a capacidade de um modelo de aprender a partir de dados a sua capacidade de generalizar para dados novos. Viés é o erro sistemático que um modelo comete ao aprender a partir de dados. Ele ocorre quando o modelo não é capaz de aprender a relação real entre as variáveis. Variância é a variabilidade dos resultados de um modelo ao ser aplicado a diferentes conjuntos de dados. Ele ocorre quando o modelo é muito complexo ou quand os dados de treinamento são insuficinetes.
+
+				* Baixo viés e baixa variância: É o modelo ideal e o que desejamos obter, com uma boa acurácia e precisão nas previsões.
+				
+				* Baixo viés e Alta variância: O modeloestá superestimado (overfitting) nos dados de treino e não generaliza bem com dados novos.
+
+				* Alto viés e Baixa variância: O modelo está subestimando (underfiting) nos dados de treino e não captura a relação verdadeira entre as variáveis preditoras e variável resposta.
+
+				* Alto Viés e Alta Variância: O modelo está  inconsistente e com uma acurácia muito baixa nas previsões.
+
+				* Idealmente tem de haver um equilibrio entre errir e complexidade do modelo, onde a Bias² e Variancia ficam em uma zona Optimum
+			
+			# Validação de modelos: Divisão do conjunto de dados (supervisionado),  Métricas de desempenho, métricas de negócio, Questões não funcionais.
+
+				1 - Funcionamento: Conjunto total de dados | Dados do treinamento (Treina modelos) / Dados de teste (Avalia modelo)
+				
+				2 - Funcionamento: Conjunto total de dados | Dados do treinamento (Treina modelos) / Dados de validação (Valida modelo) / Dados de teste (Valida performace)
+
+				* Hold-out: separar, de forma aleatória, uma parcela dos dados para testar o modelo, e utilizar o restante para treinamento. Ou seja, os testes são feitos com dados que o modelo não viu anteriormente. Idela para conjuntos pequenos e quando há restrição no tempo de treinamento.
+
+				* k-fold: Na validação cruzada, o dataset é dividido aleatoriamente em "k" grupos e a cada onteraão, um grupo é selecionado como conjunto de teste (validação) e os demais treinamento. No final, teremos a métrica de cada interação e quando estamos satisfeitos com a performace, aplicamos nos conjunto final de testes. Ideal para grandes conjuntos e necessidade de mais precisão.
+
+				* Stratified K-fold: Segue o mesmo conceito do k-fold, mas aplicado a problemas de classificação, onde manter a distribuição dos dados entre as classes em cada Fold, tanto no treinamento quanto na validação e teste. ideal para datasets desbalanceados.
+
+				# Tipos: 
+
+					* Regressão: MSE, RMSE, MAE, R2, MAPE, Taxa de Conversão
+
+					* Classificação: Acurácia, Precisão, Recall, F1-Score, Acurácia, Custo por Fraude, Redução de Chargeback
+
+					* Não Supervisionado: Silhouette, Coeficiente de Dunn, Índice de Davies-Bloundin
+
+					* Por Reforço: Retorno, Tempo de recompensa, Eficiência 
+
+					* Recomendação: ARR, Ticket Médio, churn
+
+				* Requisitos: Fairness, Segurança, Interpretabilidade, Eficiência
+
+			# Estrutura de projetos de IA/ML: Adoação de uma metodologia para projetos de IA/ML, é essencial para estruturar e padronizar o processo de desenvolvimento, assegurando que cada fase seja abordada de forma sistemática e abrangente. Uma abordagem metódica não só facilita a identificação e correlação de falhas, como o overfitting, mas também promove a reprodutibilidade, permitindo que outros xientistas e engenheiros de dados repliquem o trabalho com facilidade. Além disso, essa estruturação otimiza a alteração e aprimoramento do modelo, e facilita a documentação e a comunicação com as partes interessadas, garantindo transpararência, colaboração e eficiência eao longo de todo o projeto.
+
+				* Crisp-DM (Cross Industry Standard Process for Data Mining): Foi criada em 1996 e se tornou a metodologia mais difundida em ciência de dados para o uso em projetos de IA/ML. O CRISP-DM é cíclico, significado que é comum retornar a etapas anteriores conforme avançamos no projeto, permitindo refinamentos contínuos até alcançar o resultados desejado. Seu uso com métodos LEan geram entregas de valor para Cliente, no conceito de "Fail Fast, Learn Faster".
+
+				* ML Canvas: Foi criado em 2016 como uma ferramneta para ajudar equipes e stakeholders a planejar e comunicar os aspectos centrais de projeto de machine Leaning de maneira clara e consisa. O conceito foi insirado no Business Model Canvas, mas adaptado especificamente para os desafios e componentes únicos dos projetos de machine learning. O ML Canvas tem sido usado por profissionais da área para estruturar e planejar iniciativas de ML, ajudando a garantir que todos os elementos-chave sejam considerados e entendidos por todas as partes envolvidas.
+
+				* AL Canvas: Foi criado em 2018 por professores da universidade de Toronto com objetivo de ajudar as pessoas e tomarem melhores decisçoes e a estruturarem projetos com a ajuda de IA/ML. Também usa uma estrutura similar ao Business Model Canvas, mas dá um enfoque maior na questão humana, capturando o julgamento que será feito sobre as predições, as ações que precisam de predições e o feedback para melhoria contínua do modelo.
+			
+			# Ensemble de Modelos:
+			
+				* O que é: é uma técnica de aprendizado de máquina que combina as previsões de vários modelos para melhorar o desempenho geral. Essa técnica é baseado no princípio de que a combinação de modelos pode ajudar a reduzir o viés e a variância, o que pode levar a previsões mais precisa. Essas técnicas são frequentemente usadas em competições de aprendizado de máquina, onde a combinação de modelos pode dar uma vantagem crítica. No entanto, vale a pena notar que os ensembles podem aumentar a complexidade e o tempo de treinamento, portanto, é sempre bom considerar o trade-off entre performace e complexidade.
+
+				* Bagging (Bootstrap Aggregating): Treina vários modelosem subconjuntos aleatórios dos dados de treinamento. O modelo final é a combinação das previsões de todos os modelos treinados. Ex: Random Forest.
+
+				* Boosting: Treina modelos sequencialmente, onde cada novo modelo tenta Corrigir os erros do modelo anterior. Ex: LightGBM e XGBoost.
+
+				* Stacking: Combina as previsões de vários modelos usando um meta-aprendizado. O modelo de meta-aprendiado é treinado para aprender como combinar as previsões dos modelos base.
+
+				* Voting: Combina as previsões de vários modelos usando um processo de votação. O modelo final é o que recebe mais votos.
+	
+--> Meu primeiro modelo com Scikit-learn: 
+
+	* O que é a biblioteca Scikit-learn: é uma biblioteca popular de aprendizado de máquina para a linguagem de programação Python. Ele fornece uma ampla variedade de ferramentas e algorítimos para tarefas de aprendizado de máquina, como classificação, regressão, clusterização, redução de dimensionalidade e muito mais. O scikit-learn é conhecido por sua facilidade de uso, documentação abrangente e integração bem com outras bibliotecas Python, como NumPy, pandas e matplotlib. É uma escolha popular entre cientistas de dados e desenvolvedores para criar modelos de aprendizado de máquinas e realizar análises de dados.
+
+	* Acessar site do scikit-learn: https://scikit-learn.org/stable/
+
+	<> Descrição do problema: um laboratório de análise clínicos, com base em dados de paciente que realizaram exames de diabetes, gostaria de prever, com base em características como idade, peso e altura, qual o resultado esperado do exame para novos pacientes. Para isso, Iremos treinar um algoritmos supervisionado (dado que temos dados reais dos resultados) para criar um modelo preditivo que atenda à necessidade deste laboratório.
+
+--> Algoritmos supervisionado - Regressão Linear simples:
+
+	# O que é análise de regressão: A análise de regressão é uma abordagem estatística que busca investigar e qualificar as relações entre variáveis.
+	Ela é usada para entender como uma variável dependente (target) está relacionada a uma ou mais variáveis independentes (fatores que acreditamos influenciar a vatiável dependente).
+		Essa técniva ermite construir um modelo matemático, geralemnte na forma de uma equação linear, que representa essa relação.
+	Ao ajustar o modelo aos dados observados, podemos estimar os parâmetros e entender como as mudanças nas variáveis independentes afetam a variável depedente.
+		Isso é fundamental para fazer previsões, tomar decisões embasadas em evidências e compreender melhor os padrões em dados do mundo real.
+
+	# Um passeio pelos tipos de regressão linear:
+
+		* Linear Simples: Envolve uma variável independente e uma variável deoendente, sendo representada por uma linha reta
+		Exemplo - prever pontuação num exame com base o tempo de estudo.
+
+		* Linear Múltipla: Utiliza várias variáveis independentes para prever uma variável dependente, resultando em um modelo linear mais complexo
+		Exemplo - prever desempenho de alunos com base em múltiplas variáveis.
+
+		* Logística: Usada geralemnte para prever probabilidades em problemas de classificaçõ (binária, multinomial, ordinal aninhada)
+		Exemplo - prever se cliente fará compra online (sim/não).
+
+		* Polinomial: Permite modelar relações não-lineares entre variáveis. A regressão polinomial usa uma curva (um polinômio) para se ajustar aos dados
+		Exemplo - previsão de vendas de produtos com base no clima/temperatura.
+
+		* Poisson: Adequada para modelar dados de contagem, como o número de eventos em um determinado período. É comum em estudos epidemiológicos e de contagem
+		Exemplo - número de reclamações de sinistros.
+
+		* Ridge, Lasso e ElasticNet: Técnicas de regularização para lidar com multicolinearidade e overftting. São usadas em análises onde há muitas variáveis independentes
+		Exemplo - estimar preços de casas com base em muitas variáveis.
+
+		* Gamma: Usada quando os dados não seguem uma distribuição normal e exibem uma assimetria positiva (à direita). Além disso, o target é contínuo e positivo
+		Exemplo - previsão de tempo de permânência de pacientes em hospital.
+
+		* Beta: Aplicada quando a variável dependente está restrita ao intervalo {0, 1}, comum em análises de promoções e taxas
+		Exemplo - taxas de conversão com base numa campanha de MKT
+	
+	<> Estrutura:
+
+		Carregar os dados -> Realizar EDA -> Preparar Dataset Treino e teste -> Treinar modelo -> Validar modelo (Métricas, análise de resíduos) -> Salvar modelo -> Entregar via API
+
+
+
